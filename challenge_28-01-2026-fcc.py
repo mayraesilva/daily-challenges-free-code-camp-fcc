@@ -25,17 +25,32 @@ Tests
 
 def flatten(arr):
     original_arr = arr
+    to_process = []
     new_arr = []
     
     for item in original_arr:
-        if type(item) == type[new_arr]:
-            for element in item:
-                new_arr.append(element)
+        
+        if isinstance(item,list):
+            for arr_item in item:
+                index = 0
+                while isinstance(arr_item[index], list):
+                    
+
+                    
+
+                else:
+                    new_arr.append(arr_item)
+            
         else:
             new_arr.append(item)
-
+    
     print(new_arr)
     return new_arr
 
     
 
+flatten([1, [2, 3], 4])
+flatten([5, [4, [3, 2]], 1])
+flatten(["A", [[[["B"]]]], "C"])
+flatten([["L", "M", "N"], ["O", ["P", "Q", ["R", ["S", ["T", "U"]]]]], "V", ["W", ["X", ["Y", ["Z"]]]]])
+flatten([["red", ["blue", ["green", ["yellow", ["purple"]]]]], "orange", ["pink", ["brown"]]])
