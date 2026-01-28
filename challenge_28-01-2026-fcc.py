@@ -1,6 +1,6 @@
 """
 Hi! My name is Mayra Silva and I'm studying to become a data scientist.
-Today I'll be solving the daily challenge available on 28th, Janyary, 2026.
+Today I'll be solving the daily challenge available on 28th, January, 2026.
 
 ----------------------------
 Flatten the Array
@@ -17,8 +17,25 @@ Tests
 
  flatten([["L", "M", "N"], ["O", ["P", "Q", ["R", ["S", ["T", "U"]]]]], "V", ["W", ["X", ["Y", ["Z"]]]]]) 
  should return ["L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"].
- 
+
  flatten([["red", ["blue", ["green", ["yellow", ["purple"]]]]], "orange", ["pink", ["brown"]]]) 
  should return ["red","blue","green","yellow","purple","orange","pink","brown"].
 
 """
+
+def flatten(arr):
+    original_arr = arr
+    new_arr = []
+    
+    for item in original_arr:
+        if type(item) == type[new_arr]:
+            for element in item:
+                new_arr.append(element)
+        else:
+            new_arr.append(item)
+
+    print(new_arr)
+    return new_arr
+
+    
+
