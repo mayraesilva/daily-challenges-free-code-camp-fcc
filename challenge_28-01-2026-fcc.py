@@ -24,23 +24,17 @@ Tests
 """
 
 def flatten(arr):
-    original_arr = arr
-    to_process = []
+    to_process = list(arr)
     new_arr = []
 
-    size_process = len(to_process)
+    while to_process:
+        current = to_process.pop(0)  # take from the front
 
-    for item in original_arr:
-
-
-        if isinstance(item,list):
-            for inside_item in item:
-                to_process.append(inside_item)
-
-
+        if isinstance(current, list):
+            # replace the current list with its contents, preserving order
+            to_process = current + to_process
         else:
-            new_arr.append(item)    
-   
+            new_arr.append(current)
     print(new_arr)
     return new_arr
 
@@ -51,3 +45,7 @@ flatten([5, [4, [3, 2]], 1])
 flatten(["A", [[[["B"]]]], "C"])
 flatten([["L", "M", "N"], ["O", ["P", "Q", ["R", ["S", ["T", "U"]]]]], "V", ["W", ["X", ["Y", ["Z"]]]]])
 flatten([["red", ["blue", ["green", ["yellow", ["purple"]]]]], "orange", ["pink", ["brown"]]])
+
+"""
+As in my firsts commits I had forgotten the method pop, so it was hard for me
+"""
