@@ -27,23 +27,20 @@ def flatten(arr):
     original_arr = arr
     to_process = []
     new_arr = []
-    
+
+    size_process = len(to_process)
+
     for item in original_arr:
-        
+
+
         if isinstance(item,list):
-            for arr_item in item:
-                index = 0
-                while isinstance(arr_item[index], list):
-                    
+            for inside_item in item:
+                to_process.append(inside_item)
 
-                    
 
-                else:
-                    new_arr.append(arr_item)
-            
         else:
-            new_arr.append(item)
-    
+            new_arr.append(item)    
+   
     print(new_arr)
     return new_arr
 
