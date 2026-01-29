@@ -39,12 +39,19 @@ def separate_letters_and_numbers(s):
 
 
         except ValueError:
+
+            if len(elements_of_string) == 0:
+                elements_of_string.append(element)
+
+            elif type(elements_of_string[index - 1]) == type(element):
+                elements_of_string.append(element)
             
-            elements_of_string.append(element)
+            else:
+                elements_of_string.append('-')
+                elements_of_string.append(element)
     
     for item in elements_of_string:
-        processed_string.append(str(item)
-                                )
+        processed_string.append(str(item))
 
     new_string = ''.join(processed_string)
     print(new_string)
