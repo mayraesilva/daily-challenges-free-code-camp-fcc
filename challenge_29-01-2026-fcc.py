@@ -24,19 +24,38 @@ def separate_letters_and_numbers(s):
 
     new_string = ''
     elements_of_string = []
+    processed_string = []
     
-    for element in s:
+    for index, element in enumerate(s):
         try:
-            number = int(element)
-            elements_of_string.append(number)
-        
+            number = int(element)    
+
+            if type(elements_of_string[index - 1]) == type(number):
+                elements_of_string.append(number)
+            
+            else:
+                elements_of_string.append('-')
+                elements_of_string.append(number)
+
+
         except ValueError:
-            elements_of_string.append('-')
+            
             elements_of_string.append(element)
     
-    
-    new_string = ''.join(elements_of_string)
+    for item in elements_of_string:
+        processed_string.append(str(item)
+                                )
+
+    new_string = ''.join(processed_string)
     print(new_string)
 
 
     return new_string
+
+
+#Tests
+
+separate_letters_and_numbers("ABC123")
+separate_letters_and_numbers("Route66")
+separate_letters_and_numbers("H3LL0W0RLD")
+separate_letters_and_numbers("a1b2c3d4")
