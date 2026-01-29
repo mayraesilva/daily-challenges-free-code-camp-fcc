@@ -22,4 +22,21 @@ Tests:
 
 def separate_letters_and_numbers(s):
 
-    return s
+    new_string = ''
+    elements_of_string = []
+    
+    for element in s:
+        try:
+            number = int(element)
+            elements_of_string.append(number)
+        
+        except ValueError:
+            elements_of_string.append('-')
+            elements_of_string.append(element)
+    
+    
+    new_string = ''.join(elements_of_string)
+    print(new_string)
+
+
+    return new_string
