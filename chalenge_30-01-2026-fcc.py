@@ -58,7 +58,7 @@ def find_pawn_moves(position):
         row = board_columns.index(position[0])       
         column = board_columns[row]
         new_row = int(position[1]) + 1
-        new_position = column + str(new_row)
+        new_position = [column + str(new_row)]
 
 
 
