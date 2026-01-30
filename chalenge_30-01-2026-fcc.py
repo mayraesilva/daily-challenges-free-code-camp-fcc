@@ -38,19 +38,33 @@ Given "B2", return ["B3", "B4"], because it's on the starting row and needs to b
 import string
 
 def find_pawn_moves(position):
-    possible_position = ''
+    new_position = ''
     second_row = '2'
-    board_size = string.ascii_uppercase[:8]
-    print(board_size)
-
-   #if second_row in position:
-
-
+    board_columns = string.ascii_uppercase[:8]
     
 
+    if second_row in position:
+        row = board_columns.index(position[0])
+        print(position)
+        print(row)
+        first_row = int(position[1]) + 1 # I added 1 here, because in chess we start counting the rows at 1
+        second_row = first_row + 1
+        column = board_columns[row]
+
+        new_position = [column + str(first_row), column + str(second_row)]
 
 
-    return possible_position
+    else:
+        row = board_columns.index(position[0])       
+        column = board_columns[row]
+        new_row = int(position[1]) + 1
+        new_position = column + str(new_row)
+
+
+
+    print(new_position)
+
+    return new_position
 
 
 
@@ -58,3 +72,6 @@ def find_pawn_moves(position):
 #Tests
 find_pawn_moves("D4") 
 find_pawn_moves("B2")
+find_pawn_moves("A7")
+find_pawn_moves("G2")
+find_pawn_moves("E3")
