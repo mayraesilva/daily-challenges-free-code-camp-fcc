@@ -35,3 +35,26 @@ Given "B2", return ["B3", "B4"], because it's on the starting row and needs to b
 5. find_pawn_moves("E3") should return ["E4"].
 
 """
+import string
+
+def find_pawn_moves(position):
+    possible_position = ''
+    second_row = '2'
+    board_size = string.ascii_uppercase[:8]
+    print(board_size)
+
+   #if second_row in position:
+
+
+    
+
+
+
+    return possible_position
+
+
+
+
+#Tests
+find_pawn_moves("D4") 
+find_pawn_moves("B2")
