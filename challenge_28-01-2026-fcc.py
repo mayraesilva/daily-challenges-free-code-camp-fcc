@@ -39,12 +39,27 @@ def flatten(arr):
     return new_arr
 
     
+def flattenV2(arr):
+    new_arr = []
 
-flatten([1, [2, 3], 4])
-flatten([5, [4, [3, 2]], 1])
-flatten(["A", [[[["B"]]]], "C"])
-flatten([["L", "M", "N"], ["O", ["P", "Q", ["R", ["S", ["T", "U"]]]]], "V", ["W", ["X", ["Y", ["Z"]]]]])
-flatten([["red", ["blue", ["green", ["yellow", ["purple"]]]]], "orange", ["pink", ["brown"]]])
+    for current in arr:
+        if isinstance(current, list):
+            for x in flattenV2(current):
+                new_arr.append(x)
+        else:
+            new_arr.append(current)
+
+    return new_arr
+
+
+def main():
+    print(flattenV2([1, [2, 3], 4]))
+    print(flattenV2([5, [4, [3, 2]], 1]))
+    flattenV2(["A", [[[["B"]]]], "C"])
+    flattenV2([["L", "M", "N"], ["O", ["P", "Q", ["R", ["S", ["T", "U"]]]]], "V", ["W", ["X", ["Y", ["Z"]]]]])
+    flattenV2([["red", ["blue", ["green", ["yellow", ["purple"]]]]], "orange", ["pink", ["brown"]]])
+
+main()
 
 """
 As in my firsts commits I had forgotten the method pop, so it was hard for me
