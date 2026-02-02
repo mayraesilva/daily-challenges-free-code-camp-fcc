@@ -21,3 +21,25 @@ Tests:
 5. groundhog_day_prediction("True") should return "No prediction this year.".
 
 """
+
+def groundhog_day_prediction(appearance):
+
+    if appearance == True:
+        print("Looks like we'll have six more weeks of winter.")
+        return "Looks like we'll have six more weeks of winter."
+    
+    elif appearance == False:
+        print("It's going to be an early spring.")
+        return "It's going to be an early spring."
+    
+    else:
+        print("No prediction this year.")
+        return "No prediction this year."
+
+    
+
+groundhog_day_prediction(True)
+groundhog_day_prediction(False)
+groundhog_day_prediction(None)
+groundhog_day_prediction(" ")
+groundhog_day_prediction("True")
