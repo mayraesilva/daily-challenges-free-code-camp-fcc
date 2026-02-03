@@ -20,11 +20,11 @@ def mirror(s):
 
     original_string = s
     mirror_string = original_string[::-1]
-    """
-    Slice notation takes the form [start:stop:step]. 
-    In this case, we omit the start and stop positions since we want the whole string. 
-    We also use step = -1, which means, "repeatedly step from right to left by 1 character".
-    """
+    
+    # Slice notation takes the form [start:stop:step]. 
+    # In this case, we omit the start and stop positions since we want the whole string. 
+    # We also use step = -1, which means, "repeatedly step from right to left by 1 character".
+    
 
     new_string = original_string + mirror_string
     print(new_string)
