@@ -15,3 +15,26 @@ Tests
 3. mirror("helloworld") should return "helloworlddlrowolleh".
 4. mirror("The quick brown fox...") should return "The quick brown fox......xof nworb kciuq ehT".
 """
+
+def mirror(s):
+
+    original_string = s
+    mirror_string = original_string[::-1]
+    """
+    Slice notation takes the form [start:stop:step]. 
+    In this case, we omit the start and stop positions since we want the whole string. 
+    We also use step = -1, which means, "repeatedly step from right to left by 1 character".
+    """
+
+    new_string = original_string + mirror_string
+    print(new_string)
+    print(mirror_string)
+
+    return new_string
+
+
+#Tests
+mirror("freeCodeCamp")
+mirror("RaceCar")
+mirror("helloworld")
+mirror("The quick brown fox...")
