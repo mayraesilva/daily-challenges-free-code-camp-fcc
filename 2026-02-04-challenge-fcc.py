@@ -31,7 +31,7 @@ def truncate_text(text):
 
         new_text += '...'
         print(new_text)
-        print(len(new_text))
+        
         return new_text
         
 
