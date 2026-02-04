@@ -17,7 +17,25 @@ Tests
 
 def truncate_text(text):
 
-    return text
+    new_text = ''
+
+    if len(text) <= 20:
+        print(text)
+        return text
+    
+    else:
+        
+        for char in range(18):
+            new_text += text[char]
+        
+
+        new_text += '...'
+        print(new_text)
+        print(len(new_text))
+        return new_text
+        
+
+    
 
 
 
