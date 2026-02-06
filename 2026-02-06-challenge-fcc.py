@@ -215,11 +215,12 @@ def get_flag(code):
 }
     
     flag = emoji.emojize(country_codes[code])
+    flag_string = f'"{flag}"'
 
-    print(flag)
+    print(flag_string)
 
 
-    return flag
+    return flag_string
 
 get_flag("AL")
 get_flag("AL")
