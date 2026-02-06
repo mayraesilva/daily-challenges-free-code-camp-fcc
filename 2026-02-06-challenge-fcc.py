@@ -118,8 +118,23 @@ Tests
 
 
 def get_flag(code):
+    first_letter = code[0]
+    second_letter = code[1]
+    offset = ord("A") - ord("🇦")
 
-    
+    first_letter_as_number = ord(first_letter)
+    second_letter_as_number = ord(second_letter)
+
+    first_regional_indicator = first_letter_as_number + offset
+    second_regional_indicator = second_letter_as_number + offset
+
+    first_char = chr(first_regional_indicator)
+    second_char = chr(second_regional_indicator)
+
+    flag = first_char + second_char
+    print(flag)
+
+
 
     return flag
 
