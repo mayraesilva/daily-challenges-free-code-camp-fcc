@@ -1,0 +1,230 @@
+"""
+Hi! My name is Mayra Silva and I'm studying to become a data scientist.
+Today I'll be solving the daily challenge available on 5th, February, 2026.
+
+----------------------------
+
+2026 Winter Games Day 1: Opening Day
+Today marks the start of the 2026 Winter Games. The next 17 days will bring you coding challenges inspired by them.
+
+For the first one, you are given a two-letter country code and need to return the flag emoji for that country.
+
+Use this list:
+
+Country	Code	Flag
+Albania	"AL"	"🇦🇱"
+Andorra	"AD"	"🇦🇩"
+Argentina	"AR"	"🇦🇷"
+Armenia	"AM"	"🇦🇲"
+Australia	"AU"	"🇦🇺"
+Austria	"AT"	"🇦🇹"
+Azerbaijan	"AZ"	"🇦🇿"
+Belgium	"BE"	"🇧🇪"
+Benin	"BJ"	"🇧🇯"
+Bolivia	"BO"	"🇧🇴"
+Bosnia and Herzegovina	"BA"	"🇧🇦"
+Brazil	"BR"	"🇧🇷"
+Bulgaria	"BG"	"🇧🇬"
+Canada	"CA"	"🇨🇦"
+Chile	"CL"	"🇨🇱"
+China	"CN"	"🇨🇳"
+Colombia	"CO"	"🇨🇴"
+Croatia	"HR"	"🇭🇷"
+Cyprus	"CY"	"🇨🇾"
+Czech Republic	"CZ"	"🇨🇿"
+Denmark	"DK"	"🇩🇰"
+Ecuador	"EC"	"🇪🇨"
+Eritrea	"ER"	"🇪🇷"
+Estonia	"EE"	"🇪🇪"
+Finland	"FI"	"🇫🇮"
+France	"FR"	"🇫🇷"
+Georgia	"GE"	"🇬🇪"
+Germany	"DE"	"🇩🇪"
+Great Britain	"GB"	"🇬🇧"
+Greece	"GR"	"🇬🇷"
+Guinea-Bissau	"GW"	"🇬🇼"
+Haiti	"HT"	"🇭🇹"
+Hong Kong	"HK"	"🇭🇰"
+Hungary	"HU"	"🇭🇺"
+Iceland	"IS"	"🇮🇸"
+India	"IN"	"🇮🇳"
+Iran	"IR"	"🇮🇷"
+Ireland	"IE"	"🇮🇪"
+Israel	"IL"	"🇮🇱"
+Italy	"IT"	"🇮🇹"
+Jamaica	"JM"	"🇯🇲"
+Japan	"JP"	"🇯🇵"
+Kazakhstan	"KZ"	"🇰🇿"
+Kenya	"KE"	"🇰🇪"
+Kosovo	"XK"	"🇽🇰"
+Kyrgyzstan	"KG"	"🇰🇬"
+Latvia	"LV"	"🇱🇻"
+Lebanon	"LB"	"🇱🇧"
+Liechtenstein	"LI"	"🇱🇮"
+Lithuania	"LT"	"🇱🇹"
+Luxembourg	"LU"	"🇱🇺"
+Madagascar	"MG"	"🇲🇬"
+Malaysia	"MY"	"🇲🇾"
+Malta	"MT"	"🇲🇹"
+Mexico	"MX"	"🇲🇽"
+Moldova	"MD"	"🇲🇩"
+Monaco	"MC"	"🇲🇨"
+Mongolia	"MN"	"🇲🇳"
+Montenegro	"ME"	"🇲🇪"
+Morocco	"MA"	"🇲🇦"
+Netherlands	"NL"	"🇳🇱"
+New Zealand	"NZ"	"🇳🇿"
+Nigeria	"NG"	"🇳🇬"
+North Macedonia	"MK"	"🇲🇰"
+Norway	"NO"	"🇳🇴"
+Pakistan	"PK"	"🇵🇰"
+Philippines	"PH"	"🇵🇭"
+Poland	"PL"	"🇵🇱"
+Portugal	"PT"	"🇵🇹"
+Puerto Rico	"PR"	"🇵🇷"
+Romania	"RO"	"🇷🇴"
+San Marino	"SM"	"🇸🇲"
+Saudi Arabia	"SA"	"🇸🇦"
+Serbia	"RS"	"🇷🇸"
+Singapore	"SG"	"🇸🇬"
+Slovakia	"SK"	"🇸🇰"
+Slovenia	"SI"	"🇸🇮"
+South Africa	"ZA"	"🇿🇦"
+South Korea	"KR"	"🇰🇷"
+Spain	"ES"	"🇪🇸"
+Sweden	"SE"	"🇸🇪"
+Switzerland	"CH"	"🇨🇭"
+Thailand	"TH"	"🇹🇭"
+Trinidad & Tobago	"TT"	"🇹🇹"
+Turkey	"TR"	"🇹🇷"
+Ukraine	"UA"	"🇺🇦"
+United Arab Emirates	"AE"	"🇦🇪"
+United States	"US"	"🇺🇸"
+Uruguay	"UY"	"🇺🇾"
+Uzbekistan	"UZ"	"🇺🇿"
+Venezuela	"VE"	"🇻🇪"
+
+Tests
+
+
+1. get_flag("AL") should return "🇦🇱".
+2. get_flag("AD") should return "🇦🇩".
+3. get_flag("AR") should return "🇦🇷".
+4. get_flag("AM") should return "🇦🇲".
+5. get_flag("AU") should return "🇦🇺".
+6. get_flag("AT") should return "🇦🇹".
+
+"""
+
+
+import emoji
+
+def get_flag(code):
+    country_codes = {
+    "AL": ":Albania:",
+    "AD": ":Andorra:",
+    "AR": ":Argentina:",
+    "AM": ":Armenia:",
+    "AU": ":Australia:",
+    "AT": ":Austria:",
+    "AZ": ":Azerbaijan:",
+    "BE": ":Belgium:",
+    "BJ": ":Benin:",
+    "BO": ":Bolivia:",
+    "BA": ":Bosnia and Herzegovina:",
+    "BR": ":Brazil:",
+    "BG": ":Bulgaria:",
+    "CA": ":Canada:",
+    "CL": ":Chile:",
+    "CN": ":China:",
+    "CO": ":Colombia:",
+    "HR": ":Croatia:",
+    "CY": ":Cyprus:",
+    "CZ": ":Czech Republic:",
+    "DK": ":Denmark:",
+    "EC": ":Ecuador:",
+    "ER": ":Eritrea:",
+    "EE": ":Estonia:",
+    "FI": ":Finland:",
+    "FR": ":France:",
+    "GE": ":Georgia:",
+    "DE": ":Germany:",
+    "GB": ":Great Britain:",
+    "GR": ":Greece:",
+    "GW": ":Guinea-Bissau:",
+    "HT": ":Haiti:",
+    "HK": ":Hong Kong:",
+    "HU": ":Hungary:",
+    "IS": ":Iceland:",
+    "IN": ":India:",
+    "IR": ":Iran:",
+    "IE": ":Ireland:",
+    "IL": ":Israel:",
+    "IT": ":Italy:",
+    "JM": ":Jamaica:",
+    "JP": ":Japan:",
+    "KZ": ":Kazakhstan:",
+    "KE": ":Kenya:",
+    "XK": ":Kosovo:",
+    "KG": ":Kyrgyzstan:",
+    "LV": ":Latvia:",
+    "LB": ":Lebanon:",
+    "LI": ":Liechtenstein:",
+    "LT": ":Lithuania:",
+    "LU": ":Luxembourg:",
+    "MG": ":Madagascar:",
+    "MY": ":Malaysia:",
+    "MT": ":Malta:",
+    "MX": ":Mexico:",
+    "MD": ":Moldova:",
+    "MC": ":Monaco:",
+    "MN": ":Mongolia:",
+    "ME": ":Montenegro:",
+    "MA": ":Morocco:",
+    "NL": ":Netherlands:",
+    "NZ": ":New Zealand:",
+    "NG": ":Nigeria:",
+    "MK": ":North Macedonia:",
+    "NO": ":Norway:",
+    "PK": ":Pakistan:",
+    "PH": ":Philippines:",
+    "PL": ":Poland:",
+    "PT": ":Portugal:",
+    "PR": ":Puerto Rico:",
+    "RO": ":Romania:",
+    "SM": ":San Marino:",
+    "SA": ":Saudi Arabia:",
+    "RS": ":Serbia:",
+    "SG": ":Singapore:",
+    "SK": ":Slovakia:",
+    "SI": ":Slovenia:",
+    "ZA": ":South Africa:",
+    "KR": ":South Korea:",
+    "ES": ":Spain:",
+    "SE": ":Sweden:",
+    "CH": ":Switzerland:",
+    "TH": ":Thailand:",
+    "TT": ":Trinidad & Tobago:",
+    "TR": ":Turkey:",
+    "UA": ":Ukraine:",
+    "AE": ":United Arab Emirates:",
+    "US": ":United States:",
+    "UY": ":Uruguay:",
+    "UZ": ":Uzbekistan:",
+    "VE": ":Venezuela:",
+}
+    
+    flag = emoji.emojize(country_codes[code])
+
+    print(flag)
+
+
+    return flag
+
+get_flag("AL")
+get_flag("AL")
+get_flag("AD")
+get_flag("AR")
+get_flag("AM")
+get_flag("AU")
+get_flag("AT")
