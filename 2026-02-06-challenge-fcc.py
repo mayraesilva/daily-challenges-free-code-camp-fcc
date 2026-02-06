@@ -117,110 +117,11 @@ Tests
 """
 
 
-import emoji
-
 def get_flag(code):
-    country_codes = {
-    "AL": ":Albania:",
-    "AD": ":Andorra:",
-    "AR": ":Argentina:",
-    "AM": ":Armenia:",
-    "AU": ":Australia:",
-    "AT": ":Austria:",
-    "AZ": ":Azerbaijan:",
-    "BE": ":Belgium:",
-    "BJ": ":Benin:",
-    "BO": ":Bolivia:",
-    "BA": ":Bosnia and Herzegovina:",
-    "BR": ":Brazil:",
-    "BG": ":Bulgaria:",
-    "CA": ":Canada:",
-    "CL": ":Chile:",
-    "CN": ":China:",
-    "CO": ":Colombia:",
-    "HR": ":Croatia:",
-    "CY": ":Cyprus:",
-    "CZ": ":Czech Republic:",
-    "DK": ":Denmark:",
-    "EC": ":Ecuador:",
-    "ER": ":Eritrea:",
-    "EE": ":Estonia:",
-    "FI": ":Finland:",
-    "FR": ":France:",
-    "GE": ":Georgia:",
-    "DE": ":Germany:",
-    "GB": ":Great Britain:",
-    "GR": ":Greece:",
-    "GW": ":Guinea-Bissau:",
-    "HT": ":Haiti:",
-    "HK": ":Hong Kong:",
-    "HU": ":Hungary:",
-    "IS": ":Iceland:",
-    "IN": ":India:",
-    "IR": ":Iran:",
-    "IE": ":Ireland:",
-    "IL": ":Israel:",
-    "IT": ":Italy:",
-    "JM": ":Jamaica:",
-    "JP": ":Japan:",
-    "KZ": ":Kazakhstan:",
-    "KE": ":Kenya:",
-    "XK": ":Kosovo:",
-    "KG": ":Kyrgyzstan:",
-    "LV": ":Latvia:",
-    "LB": ":Lebanon:",
-    "LI": ":Liechtenstein:",
-    "LT": ":Lithuania:",
-    "LU": ":Luxembourg:",
-    "MG": ":Madagascar:",
-    "MY": ":Malaysia:",
-    "MT": ":Malta:",
-    "MX": ":Mexico:",
-    "MD": ":Moldova:",
-    "MC": ":Monaco:",
-    "MN": ":Mongolia:",
-    "ME": ":Montenegro:",
-    "MA": ":Morocco:",
-    "NL": ":Netherlands:",
-    "NZ": ":New Zealand:",
-    "NG": ":Nigeria:",
-    "MK": ":North Macedonia:",
-    "NO": ":Norway:",
-    "PK": ":Pakistan:",
-    "PH": ":Philippines:",
-    "PL": ":Poland:",
-    "PT": ":Portugal:",
-    "PR": ":Puerto Rico:",
-    "RO": ":Romania:",
-    "SM": ":San Marino:",
-    "SA": ":Saudi Arabia:",
-    "RS": ":Serbia:",
-    "SG": ":Singapore:",
-    "SK": ":Slovakia:",
-    "SI": ":Slovenia:",
-    "ZA": ":South Africa:",
-    "KR": ":South Korea:",
-    "ES": ":Spain:",
-    "SE": ":Sweden:",
-    "CH": ":Switzerland:",
-    "TH": ":Thailand:",
-    "TT": ":Trinidad & Tobago:",
-    "TR": ":Turkey:",
-    "UA": ":Ukraine:",
-    "AE": ":United Arab Emirates:",
-    "US": ":United States:",
-    "UY": ":Uruguay:",
-    "UZ": ":Uzbekistan:",
-    "VE": ":Venezuela:",
-}
+
     
-    flag = emoji.emojize(country_codes[code])
-    flag_string = f'"{flag}"'
 
-    print(flag_string)
-
-
-    return flag_string
+    return flag
 
 get_flag("AL")
 get_flag("AL")
