@@ -120,7 +120,7 @@ Tests
 def get_flag(code):
     first_letter = code[0]
     second_letter = code[1]
-    offset = ord("A") - ord("🇦")
+    offset = abs(ord("A") - ord("🇦"))
 
     first_letter_as_number = ord(first_letter)
     second_letter_as_number = ord(second_letter)
