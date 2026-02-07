@@ -28,6 +28,11 @@ Given "Regular" and 180 degrees, return "Goofy".
 def get_landing_stance(start_stance, rotation):
 
     landing_stance = ''
+    
+    if start_stance == 'Goofy':
+        rotation += 180
+
+
     how_many_rot = abs(rotation / 90) #get the absolute value
 
     if (how_many_rot % 2) == 0:
