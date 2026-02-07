@@ -34,7 +34,7 @@ import math
 
 def get_landing_stance(start_stance, rotation):
 
-    landing_stance = start_stance
+    landing_stance = ''
     possible_stances = ['Regular', 'Goofy']
     stances = []
 
@@ -53,21 +53,33 @@ def get_landing_stance(start_stance, rotation):
                 continue
     
     landing_stance = stances[-1]
-    print(stances)
-    #print(landing_stance)
+    #print(stances)
+    print(landing_stance)
     return landing_stance
             
 
 
-        
+# 'Regular', 'Goofy', Regular', 'Goofy', Regular', 'Goofy', Regular', 'Goofy', Regular', 'Goofy',
+def get_landing_stance_v2(start_stance, rotation):
+    stances = ['Regular', 'Goofy'] # 0, 1        
+    stance_changes = abs(rotation) // 180
+    start_stance_index = stances.index(start_stance)
 
+    # 0 % 2 = 0
+    # 1 % 2 = 1
+    final_index = (stance_changes + start_stance_index)  % 2 
+
+    result = stances[final_index]
+    print(result)
+
+    return result
 
 
 
 #Tests
-get_landing_stance("Regular", 90)
-get_landing_stance("Regular", 180) 
-get_landing_stance("Goofy", -270)
-get_landing_stance("Regular", 2340)
-get_landing_stance("Goofy", 2160)
-get_landing_stance("Goofy", -540)
+get_landing_stance_v2("Regular", 90)
+get_landing_stance_v2("Regular", 180) 
+get_landing_stance_v2("Goofy", -270)
+get_landing_stance_v2("Regular", 2340)
+get_landing_stance_v2("Goofy", 2160)
+get_landing_stance_v2("Goofy", -540)
