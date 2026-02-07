@@ -24,26 +24,33 @@ Given "Regular" and 180 degrees, return "Goofy".
 6. get_landing_stance("Goofy", -540) should return "Regular".
 
 """
+import math
+
 
 def get_landing_stance(start_stance, rotation):
 
     landing_stance = ''
     
-    if start_stance == 'Goofy':
-        rotation = abs(rotation) + 180
 
-
-    how_many_rot = abs(rotation / 90) #get the absolute value
+    how_many_rot = abs(rotation / 180) #get the absolute value
+    how_many_rot = math.floor(how_many_rot)
 
     if (how_many_rot % 2) == 0:
-        landing_stance = 'Goofy'
+        landing_stance = start_stance
         print(landing_stance)
         return landing_stance
     
     else:
-        landing_stance = 'Regular'
-        print(landing_stance)
-        return landing_stance
+        if start_stance == 'Goofy':
+
+            landing_stance = 'Regular'
+            print(landing_stance)
+            return landing_stance
+        else:
+            landing_stance = 'Goofy'
+            print(landing_stance)
+            return landing_stance
+
 
 
 
