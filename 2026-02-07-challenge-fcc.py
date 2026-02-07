@@ -34,16 +34,32 @@ import math
 
 def get_landing_stance(start_stance, rotation):
 
-    landing_stance = ''
+    landing_stance = start_stance
+    possible_stances = ['Regular', 'Goofy']
     stances = []
 
+
     stances.append(start_stance)
+    change_stance = abs(int(rotation / 180))
 
-    change_stance = abs(rotation / 180)
+    for stance in range(change_stance):
 
+        for possibility in possible_stances:
 
-
+            if possibility != stances[-1]:
+                stances.append(possibility)
+            
+            else:
+                continue
+    
+    landing_stance = stances[-1]
+    print(stances)
+    #print(landing_stance)
     return landing_stance
+            
+
+
+        
 
 
 
