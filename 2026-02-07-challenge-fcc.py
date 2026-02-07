@@ -23,6 +23,11 @@ Given "Regular" and 180 degrees, return "Goofy".
 5. get_landing_stance("Goofy", 2160) should return "Goofy".
 6. get_landing_stance("Goofy", -540) should return "Regular".
 
+------------------------------
+
+In this branch, I'll be trying to solve the same challenge,
+but, without using if conditions.
+
 """
 import math
 
@@ -30,26 +35,15 @@ import math
 def get_landing_stance(start_stance, rotation):
 
     landing_stance = ''
-    
+    stances = []
 
-    how_many_rot = abs(rotation / 180) #get the absolute value
-    how_many_rot = math.floor(how_many_rot)
+    stances.append(start_stance)
 
-    if (how_many_rot % 2) == 0:
-        landing_stance = start_stance
-        print(landing_stance)
-        return landing_stance
-    
-    else:
-        if start_stance == 'Goofy':
+    change_stance = abs(rotation / 180)
 
-            landing_stance = 'Regular'
-            print(landing_stance)
-            return landing_stance
-        else:
-            landing_stance = 'Goofy'
-            print(landing_stance)
-            return landing_stance
+
+
+    return landing_stance
 
 
 
