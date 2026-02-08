@@ -23,9 +23,14 @@ Tests:
 
 from functools import reduce
 
+# [(caio, 10), (mayra,20)]
 def calculate_penalty_distanceV2(rounds):
 
     #This version I'll be trying to solve it without for.
+
+    # failed_rounds = filter(lambda x: x < 5, rounds)
+    # rouns_penalty = map(lambda x: 150*(5-x), failed_rounds)
+    # total_penalty = reduce(lambda x,y: x+y, rouns_penalty, 0)
 
     points = reduce(lambda x, y: x + y, rounds)
     rounds_played = len(rounds)
