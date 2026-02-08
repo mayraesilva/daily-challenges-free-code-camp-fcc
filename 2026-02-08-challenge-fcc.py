@@ -20,3 +20,26 @@ Tests:
 4. calculate_penalty_distance([5, 4, 5, 5]) should return 150.
 5. calculate_penalty_distance([4, 3, 0, 3]) should return 1500.
 """
+
+def calculate_penalty_distance(rounds):
+
+    points = 0
+    rounds_played = len(rounds)
+    max_points = rounds_played * 5
+
+    for round in rounds:
+        points += round
+    
+    targets_missed = max_points - points
+    penalty = targets_missed * 150
+
+    print(penalty)
+    return penalty
+
+
+
+calculate_penalty_distance([4, 4])
+calculate_penalty_distance([5, 5])
+calculate_penalty_distance([4, 5, 3, 5])
+calculate_penalty_distance([5, 4, 5, 5])
+calculate_penalty_distance([4, 3, 0, 3])
