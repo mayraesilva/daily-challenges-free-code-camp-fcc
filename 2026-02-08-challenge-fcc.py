@@ -21,15 +21,15 @@ Tests:
 5. calculate_penalty_distance([4, 3, 0, 3]) should return 1500.
 """
 
-def calculate_penalty_distance(rounds):
+from functools import reduce
 
-    points = 0
+def calculate_penalty_distanceV2(rounds):
+
+    #This version I'll be trying to solve it without for.
+
+    points = reduce(lambda x, y: x + y, rounds)
     rounds_played = len(rounds)
     max_points = rounds_played * 5
-
-    for round in rounds:
-        points += round
-    
     targets_missed = max_points - points
     penalty = targets_missed * 150
 
@@ -37,9 +37,8 @@ def calculate_penalty_distance(rounds):
     return penalty
 
 
-
-calculate_penalty_distance([4, 4])
-calculate_penalty_distance([5, 5])
-calculate_penalty_distance([4, 5, 3, 5])
-calculate_penalty_distance([5, 4, 5, 5])
-calculate_penalty_distance([4, 3, 0, 3])
+calculate_penalty_distanceV2([4, 4])
+calculate_penalty_distanceV2([5, 5])
+calculate_penalty_distanceV2([4, 5, 3, 5])
+calculate_penalty_distanceV2([5, 4, 5, 5])
+calculate_penalty_distanceV2([4, 3, 0, 3])
