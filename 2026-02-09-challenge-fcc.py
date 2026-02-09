@@ -1,6 +1,6 @@
 """
 Hi! My name is Mayra Silva and I'm studying to become a data scientist.
-Today I'll be solving the daily challenge available on 8th, February, 2026.
+Today I'll be solving the daily challenge available on 9th, February, 2026.
 
 ----------------------------
 2026 Winter Games Day 4: Ski Jumping
@@ -18,6 +18,7 @@ The current total scores of the other jumpers are:
 175.0
 162.0
 170.0
+
 If your score is the best, return "Gold"
 If it's second best, return "Silver"
 If it's third best, return "Bronze"
@@ -36,4 +37,36 @@ Tests
 
 def ski_jump_medal(distance_points, style_points, wind_comp, k_point_bonus):
 
-    return distance_points
+    others_competitors = [165.5, 172.0, 158.0, 180.0, 169.5, 175.0, 162.0, 170.0]
+    position_other_competitors = others_competitors.sort(reverse=True)
+    my_points = [distance_points, style_points, wind_comp, k_point_bonus]
+    my_points_total = sum(my_points)
+
+    best = position_other_competitors[0]
+    second_best = position_other_competitors[1]
+    third_best = position_other_competitors[2]
+
+    if my_points_total > best:
+        print("Gold")
+        return "Gold"
+    
+    elif my_points_total < best and my_points > second_best:
+        print("Silver")
+        return "Silver"
+
+    elif my_points_total < second_best and > third_best:
+        print("Bronze")
+        return "Bronze"
+    
+    else:
+        print("No Medal")
+        return "No Medal"
+
+#tests
+
+ski_jump_medal(125.0, 58.0, 0.0, 6.0) 
+ski_jump_medal(119.0, 50.0, 1.0, 4.0) 
+ski_jump_medal(122.0, 52.0, -1.0, 4.0)
+ski_jump_medal(118.0, 50.5, -1.5, 4.0)
+ski_jump_medal(124.0, 50.5, 2.0, 5.0) 
+ski_jump_medal(119.0, 49.5, 0.0, 3.0) 
