@@ -35,31 +35,40 @@ from datetime import datetime, timedelta
 def get_relative_results(results):
 
     date_format = '%H:%M:%S'
-    relative_date_format = '%M:%S'
     results_new_format = []
     relative_results = []
-    results_format = []
+    relative_results_final = []
+    
 
     for result in results:
 
         new_value = datetime.strptime(result, date_format) # here we convert the string in date time object
         results_new_format.append(new_value)
     
+    #Here we are only getting the minutes and seconds we need
     for result in results_new_format:
 
         relative_time = (result - results_new_format[0])
-        # relative_minute = relative_time.minute
-        # relative_seconds = relative_time.second
         relative_time_format = str(relative_time)[2:]
 
         relative_results.append(f'+{relative_time_format}')
     
-    print(relative_results)
+
+    # Here we are puting into the format FCC requires
+    for result in relative_results:
+        
+        if result[1] == '0':
+            new_result = result.replace('0', '', 1)
+            relative_results_final.append(new_result)
+        
+        else:
+            relative_results_final.append(result)
+
+    relative_results_final[0] = '0'
+    print(relative_results_final)
 
 
-
-
-    return results
+    return relative_results_final
 
 
 
@@ -68,7 +77,7 @@ def get_relative_results(results):
 #Tests
 
 get_relative_results(["1:25:32", "1:26:10", "1:27:05"])
-# get_relative_results(["1:00:01", "1:00:05", "1:00:10"])
-# get_relative_results(["1:10:06", "1:10:23", "1:10:48", "1:12:11"])
-# get_relative_results(["0:49:13", "0:49:15", "0:50:14", "0:51:30", "0:51:58", "0:52:16", "0:53:12", "0:53:31", "0:56:19", "1:02:20"])
-# get_relative_results(["2:01:15", "2:10:45", "2:10:53", "2:11:04", "2:11:55", "2:13:27", "2:14:30", "2:15:10"])
+get_relative_results(["1:00:01", "1:00:05", "1:00:10"])
+get_relative_results(["1:10:06", "1:10:23", "1:10:48", "1:12:11"])
+get_relative_results(["0:49:13", "0:49:15", "0:50:14", "0:51:30", "0:51:58", "0:52:16", "0:53:12", "0:53:31", "0:56:19", "1:02:20"])
+get_relative_results(["2:01:15", "2:10:45", "2:10:53", "2:11:04", "2:11:55", "2:13:27", "2:14:30", "2:15:10"])
