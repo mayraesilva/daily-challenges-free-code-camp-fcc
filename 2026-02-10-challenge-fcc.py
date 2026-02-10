@@ -30,7 +30,7 @@ should return ["0", "+0:02", "+1:01", "+2:17", "+2:45", "+3:03", "+3:59", "+4:18
  should return ["0", "+9:30", "+9:38", "+9:49", "+10:40", "+12:12", "+13:15", "+13:55"].
 """
 
-from datetime import datetime 
+from datetime import datetime, timedelta
 
 def get_relative_results(results):
 
@@ -38,7 +38,7 @@ def get_relative_results(results):
     results_new_format = []
 
     for result in results:
-        new_value = datetime.strptime(date_format, result)
+        new_value = datetime.strptime(result, date_format)
         results_new_format.append(new_value)
     
     print(results_new_format)
@@ -54,7 +54,7 @@ def get_relative_results(results):
 #Tests
 
 get_relative_results(["1:25:32", "1:26:10", "1:27:05"])
-get_relative_results(["1:00:01", "1:00:05", "1:00:10"])
-get_relative_results(["1:10:06", "1:10:23", "1:10:48", "1:12:11"])
-get_relative_results(["0:49:13", "0:49:15", "0:50:14", "0:51:30", "0:51:58", "0:52:16", "0:53:12", "0:53:31", "0:56:19", "1:02:20"])
-get_relative_results(["2:01:15", "2:10:45", "2:10:53", "2:11:04", "2:11:55", "2:13:27", "2:14:30", "2:15:10"])
+# get_relative_results(["1:00:01", "1:00:05", "1:00:10"])
+# get_relative_results(["1:10:06", "1:10:23", "1:10:48", "1:12:11"])
+# get_relative_results(["0:49:13", "0:49:15", "0:50:14", "0:51:30", "0:51:58", "0:52:16", "0:53:12", "0:53:31", "0:56:19", "1:02:20"])
+# get_relative_results(["2:01:15", "2:10:45", "2:10:53", "2:11:04", "2:11:55", "2:13:27", "2:14:30", "2:15:10"])
