@@ -41,18 +41,19 @@ def ski_jump_medal(distance_points, style_points, wind_comp, k_point_bonus):
     others_competitors.sort(reverse=True)
     position_other_competitors = others_competitors
     my_points = [distance_points, style_points, wind_comp, k_point_bonus]
-    my_points_total = sum(my_points)
+    my_points_total = float(sum(my_points))
     
 
     best = position_other_competitors[0]
     second_best = position_other_competitors[1]
     third_best = position_other_competitors[2]
+    
 
     if my_points_total > best:
         print("Gold")
         return "Gold"
     
-    elif my_points_total < best and my_points > second_best:
+    elif my_points_total < best and my_points_total > second_best:
         print("Silver")
         return "Silver"
 
