@@ -30,8 +30,7 @@ should return ["0", "+0:02", "+1:01", "+2:17", "+2:45", "+3:03", "+3:59", "+4:18
  should return ["0", "+9:30", "+9:38", "+9:49", "+10:40", "+12:12", "+13:15", "+13:55"].
 """
 
-from datetime import datetime, timedelta
-
+from datetime import datetime
 def get_relative_results(results):
 
     date_format = '%H:%M:%S'
