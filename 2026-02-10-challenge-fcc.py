@@ -35,13 +35,27 @@ from datetime import datetime, timedelta
 def get_relative_results(results):
 
     date_format = '%H:%M:%S'
+    relative_date_format = '%M:%S'
     results_new_format = []
+    relative_results = []
+    results_format = []
 
     for result in results:
-        new_value = datetime.strptime(result, date_format).time() # the .time is there so we only get the time not date
+
+        new_value = datetime.strptime(result, date_format) # here we convert the string in date time object
         results_new_format.append(new_value)
     
-    print(results_new_format)
+    for result in results_new_format:
+
+        relative_time = (result - results_new_format[0])
+        # relative_minute = relative_time.minute
+        # relative_seconds = relative_time.second
+        relative_time_format = str(relative_time)[2:]
+
+        relative_results.append(f'+{relative_time_format}')
+    
+    print(relative_results)
+
 
 
 
