@@ -38,7 +38,7 @@ def get_relative_results(results):
     results_new_format = []
 
     for result in results:
-        new_value = datetime.strptime(result, date_format)
+        new_value = datetime.strptime(result, date_format).time() # the .time is there so we only get the time not date
         results_new_format.append(new_value)
     
     print(results_new_format)
