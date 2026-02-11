@@ -26,23 +26,25 @@ Tests
 """
 
 def compute_score(judge_scores, *penalties):
+    final_score = 0
+    no_penalty_score = 0
+    penalties = 0
 
     # Get the values to be desconsidered
     highest_desconsidered = max(judge_scores)
     lowest_desconsidered = min(judge_scores)
 
-    print(highest_desconsidered)
-    print(lowest_desconsidered)
 
     # Remove the values to be desconsidered from list
     judge_scores.remove(highest_desconsidered)
     judge_scores.remove(lowest_desconsidered)
 
-    print(judge_scores)
+    no_penalty_score = sum(judge_scores) # we have not applied the penalties
+    
+    
 
 
-
-    return judge_scores
+    return final_score
 
 
 
