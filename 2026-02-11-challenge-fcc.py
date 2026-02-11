@@ -27,4 +27,24 @@ Tests
 
 def compute_score(judge_scores, *penalties):
 
+    # Get the values to be desconsidered
+    highest_desconsidered = max(judge_scores)
+    lowest_desconsidered = min(judge_scores)
+
+    print(highest_desconsidered)
+    print(lowest_desconsidered)
+
+    # Remove the values to be desconsidered from list
+    judge_scores.remove(highest_desconsidered)
+    judge_scores.remove(lowest_desconsidered)
+
+    print(judge_scores)
+
+
+
     return judge_scores
+
+
+
+# Tests
+compute_score([10, 8, 9, 6, 9, 8, 8, 9, 7, 7], 1)
