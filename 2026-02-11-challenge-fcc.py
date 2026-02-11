@@ -28,7 +28,7 @@ Tests
 def compute_score(judge_scores, *penalties):
     final_score = 0
     no_penalty_score = 0
-    penalties = 0
+    penalties_points = sum(penalties)
 
     # Get the values to be desconsidered
     highest_desconsidered = max(judge_scores)
@@ -40,8 +40,9 @@ def compute_score(judge_scores, *penalties):
     judge_scores.remove(lowest_desconsidered)
 
     no_penalty_score = sum(judge_scores) # we have not applied the penalties
-    
-    
+
+    final_score = no_penalty_score - penalties_points
+    print(final_score)
 
 
     return final_score
@@ -50,3 +51,7 @@ def compute_score(judge_scores, *penalties):
 
 # Tests
 compute_score([10, 8, 9, 6, 9, 8, 8, 9, 7, 7], 1)
+compute_score([10, 10, 10, 10, 10, 10, 10, 10, 10, 10])
+compute_score([10, 8, 9, 10, 9, 8, 8, 9, 10, 7], 1, 2, 1)
+compute_score([8.0, 8.5, 9.0, 8.5, 9.0, 8.0, 9.0, 8.5, 9.0, 8.5], 0.5, 1.0)
+compute_score([6.0, 8.5, 7.0, 9.0, 7.5, 8.0, 6.5, 9.5, 7.0, 8.0], 1.5, 0.5, 0.5)
