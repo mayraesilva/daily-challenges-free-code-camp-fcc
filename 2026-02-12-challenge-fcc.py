@@ -20,3 +20,16 @@ Tests
 4. largest_difference([25.88, 26.10, 25.95, 26.05, 26.00], [25.90, 26.55, 25.92, 26.03, 26.01]) should return 2.
 5. largest_difference([25.92, 26.01, 26.05, 25.88, 26.12], [25.95, 26.00, 26.03, 26.45, 26.10]) should return 4.
 """
+
+
+def largest_difference(skater1, skater2):
+    largest_gap = 0
+    differences = []
+
+    for index, lap in skater1:
+        difference = abs(skater1[index] - skater2[index])
+        differences.append(difference)                 
+
+    print(differences)
+
+    return largest_gap
