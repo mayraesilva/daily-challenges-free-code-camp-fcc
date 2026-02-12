@@ -32,7 +32,9 @@ def largest_difference(skater1, skater2):
         differences.append(difference)                 
 
     largest_gap = max(differences)
-    biggest_was_in = differences.index(largest_gap)
+    biggest_was_in = differences.index(largest_gap) + 1
+
+    print(biggest_was_in)
 
     return biggest_was_in
 
@@ -45,3 +47,4 @@ largest_difference([27.04, 25.94, 26.22, 26.07, 26.18], [25.59, 25.80, 26.11, 26
 largest_difference([25.82, 25.90, 26.05, 26.00, 26.48], [25.85, 25.92, 26.07, 25.98, 25.95])
 largest_difference([25.88, 26.10, 25.95, 26.05, 26.00], [25.90, 26.55, 25.92, 26.03, 26.01])
 largest_difference([25.92, 26.01, 26.05, 25.88, 26.12], [25.95, 26.00, 26.03, 26.45, 26.10])
+
