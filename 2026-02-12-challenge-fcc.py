@@ -25,14 +25,16 @@ Tests
 def largest_difference(skater1, skater2):
     largest_gap = 0
     differences = []
+    biggest_was_in = 0
 
     for index, lap in enumerate(skater1):
         difference = abs(skater1[index] - skater2[index])
         differences.append(difference)                 
 
-    print(differences)
+    largest_gap = max(differences)
+    biggest_was_in = differences.index(largest_gap)
 
-    return largest_gap
+    return biggest_was_in
 
 
 
