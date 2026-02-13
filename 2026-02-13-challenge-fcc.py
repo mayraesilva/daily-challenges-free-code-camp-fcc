@@ -54,14 +54,19 @@ def get_fastest_speed(times):
                  300,
                  250]
     
-    segment_speed = []
+    fastest_speed = 0
+    fastest_segment = 0
+    
 
     for index, segment in enumerate(segments):
         speed = segment / times[index]
-        segment_speed.append(speed)
+
+        if speed > fastest_speed:
+            fastest_speed = speed
+            fastest_segment = index + 1
+        
     
-    fastest_speed = max(segment_speed)
-    fastest_segment = segment_speed.index(fastest_speed) + 1
+    
     fastest_string = f"The luger's fastest speed was {fastest_speed:.2f} m/s on segment {fastest_segment}."
     print(fastest_string)
 
