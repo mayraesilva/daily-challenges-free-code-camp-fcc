@@ -60,12 +60,13 @@ def get_fastest_speed(times):
         speed = value / times[index]
         segment_speed.append(speed)
     
-    print(segment_speed)
-        
+    fastest_speed = max(segment_speed)
+    fastest_segment = segment_speed.index(fastest_speed) + 1
+    fastest_string = f"The luger's fastest speed was {fastest_speed:.2f} m/s on segment {fastest_segment}."
+    print(fastest_string)
+
+    return fastest_string
     
-
-
-    return times
 
 
 #Tests
