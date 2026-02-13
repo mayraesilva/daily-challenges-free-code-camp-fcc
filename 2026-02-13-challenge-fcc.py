@@ -48,16 +48,16 @@ should return "The luger's fastest speed was 35.07 m/s on segment 5."
 
 
 def get_fastest_speed(times):
-    segments = {"segment 1": 320,
-                "segment 2": 280,
-                "segment 3": 350,
-                "segment 4": 300,
-                "segment 5": 250}
+    segments = [ 320,
+                 280,
+                 350,
+                 300,
+                 250]
     
     segment_speed = []
 
-    for index, (key, value) in enumerate(segments.items()):
-        speed = value / times[index]
+    for index, segment in enumerate(segments):
+        speed = segment / times[index]
         segment_speed.append(speed)
     
     fastest_speed = max(segment_speed)
