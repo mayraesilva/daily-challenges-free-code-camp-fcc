@@ -71,9 +71,9 @@ def get_fastest_speed(times):
 
 #Tests
 get_fastest_speed([9.523, 8.234, 10.012, 9.001, 7.128])
-# get_fastest_speed([9.381, 7.417, 9.912, 8.815, 7.284])
-# get_fastest_speed([8.890, 7.601, 9.093, 8.392, 6.912])
-# get_fastest_speed([8.490, 7.732, 10.103, 8.489, 6.840])
-# get_fastest_speed([8.204, 7.230, 9.673, 7.645, 6.508])
+get_fastest_speed([9.381, 7.417, 9.912, 8.815, 7.284])
+get_fastest_speed([8.890, 7.601, 9.093, 8.392, 6.912])
+get_fastest_speed([8.490, 7.732, 10.103, 8.489, 6.840])
+get_fastest_speed([8.204, 7.230, 9.673, 7.645, 6.508])
 
 
