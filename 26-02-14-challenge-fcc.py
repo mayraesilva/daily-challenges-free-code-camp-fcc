@@ -40,6 +40,12 @@ Tests:
 
 def get_difficulty(track):
 
+    score = 0
+    difficulty = None
+
+    for index, path in enumerate(track):
+
+
     return track
 
 #Tests
