@@ -42,24 +42,39 @@ def get_difficulty(track):
 
     score = 0
     difficulty = None
+    track_difficulty = {range(0,101) : "Easy", range(101,201): "Medium",range(201, 10000) : "Hard" }
 
     for index, path in enumerate(track):
-        next_curve = track[ index + 1]
+        
+        #To make sure we are not out of index
+        if index + 1 < len(track):
+            next_curve = track[ index + 1]
+            
+        else:
+            next_curve = track[index]
 
+        #If We have a straight path we skip it 
         if path == 'S':
             continue
 
+        #Checking which score we are getting
         if path != next_curve:
             if next_curve == 'S':
                 score += 5
             else:
                 score += 15
         
+        else:
+            score += 5
 
 
+    for scores in track_difficulty.keys():
+        if score in scores:
+            difficulty = track_difficulty[scores]
+            print(difficulty)
+            return difficulty
+        
 
-
-    return track
 
 #Tests
 get_difficulty("SLSLLSRRLSRLRL") 
