@@ -44,6 +44,19 @@ def get_difficulty(track):
     difficulty = None
 
     for index, path in enumerate(track):
+        next_curve = track[ index + 1]
+
+        if path == 'S':
+            continue
+
+        if path != next_curve:
+            if next_curve == 'S':
+                score += 5
+            else:
+                score += 15
+        
+
+
 
 
     return track
