@@ -39,7 +39,7 @@ Tests
 def get_hill_rating(drop, distance, hill_type):
 
     steepness = drop / distance
-    adjusted_steepness = 0
+    
 
     if hill_type == 'Downhill':
         adjusted_steepness = steepness * 1.2
@@ -54,11 +54,11 @@ def get_hill_rating(drop, distance, hill_type):
         print("Green")
         return "Green"
     
-    if 0.1 < adjusted_steepness <= 0.25:
+    elif 0.1 < adjusted_steepness <= 0.25:
         print ('Blue')
         return "Blue"
     
-    if adjusted_steepness > 0.25:
+    elif adjusted_steepness > 0.25:
         print('Black')
         return "Black"
 
