@@ -1,6 +1,6 @@
 """
 Hi! My name is Mayra Silva and I'm studying to become a data scientist.
-Today I'll be solving the daily challenge available on 14th, February, 2026.
+Today I'll be solving the daily challenge available on 15th, February, 2026.
 
 ----------------------------
 2026 Winter Games Day 10: Alpine Skiing
@@ -38,7 +38,30 @@ Tests
 
 def get_hill_rating(drop, distance, hill_type):
 
-    return drop
+    steepness = drop / distance
+    adjusted_steepness = 0
+
+    if hill_type == 'Downhill':
+        adjusted_steepness = steepness * 1.2
+    
+    elif hill_type == 'Slalom':
+        adjusted_steepness = steepness * 0.9
+    
+    elif hill_type == "Giant Slalom": 
+        adjusted_steepness = steepness
+
+    if adjusted_steepness <= 0.1:
+        print("Green")
+        return "Green"
+    
+    if 0.1 < adjusted_steepness <= 0.25:
+        print ('Blue')
+        return "Blue"
+    
+    if adjusted_steepness > 0.25:
+        print('Black')
+        return "Black"
+
 
 
 #Tests
