@@ -45,18 +45,24 @@ should return "The semi-final games will be JPN vs ITA and AUT vs KOR.".
 """
 
 def get_semifinal_matchups(teams):
-
+    
     teams_dict = {}
 
+
     for team in teams:
-        team_and_points = team.split(':')
+        team_and_points = team.split(':',1)
         teams_dict[team_and_points[0]] = team_and_points[1].split('-')
 
-    for team in teams_dict.keys():
-        for point in teams_dict[team]:
-            teams_dict[team] = [int(point)]
+    print(teams_dict)
 
+    for team, points in teams_dict.items():
+        teams_dict[team] = [int(point) for point in points]
 
+    
+
+    
+
+    print(teams_dict)
         
 
     return teams
@@ -66,6 +72,6 @@ def get_semifinal_matchups(teams):
 #  Tests
 
 get_semifinal_matchups(["CAN: 2-2-0-1", "FIN: 2-2-1-0", "GER: 1-0-1-3", "SUI: 0-1-3-1", "SWE: 1-1-2-1", "USA: 2-1-0-2"])
-get_semifinal_matchups(["CAN: 2-1-1-1", "CZE: 1-1-1-2", "FIN: 1-2-1-1", "NOR: 0-1-1-3", "SLO: 1-0-1-3", "USA: 5-0-0-0"])
-get_semifinal_matchups(["CAN: 3-2-0-0", "CZE: 2-1-2-0", "LAT: 0-0-1-4", "ITA: 1-1-1-2", "DEN: 1-0-0-4", "USA: 3-1-1-0"])
-get_semifinal_matchups(["AUT: 2-2-1-0", "DEN: 1-0-0-4", "ITA: 1-1-1-2", "JPN: 3-2-0-0", "KOR: 2-1-2-0", "LAT: 0-0-1-4"])
+#get_semifinal_matchups(["CAN: 2-1-1-1", "CZE: 1-1-1-2", "FIN: 1-2-1-1", "NOR: 0-1-1-3", "SLO: 1-0-1-3", "USA: 5-0-0-0"])
+#get_semifinal_matchups(["CAN: 3-2-0-0", "CZE: 2-1-2-0", "LAT: 0-0-1-4", "ITA: 1-1-1-2", "DEN: 1-0-0-4", "USA: 3-1-1-0"])
+#get_semifinal_matchups(["AUT: 2-2-1-0", "DEN: 1-0-0-4", "ITA: 1-1-1-2", "JPN: 3-2-0-0", "KOR: 2-1-2-0", "LAT: 0-0-1-4"])
