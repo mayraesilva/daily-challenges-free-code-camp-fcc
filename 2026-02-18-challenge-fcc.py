@@ -4,6 +4,7 @@ Today I'll be solving the daily challenge available on 18th, February, 2026.
 
 ----------------------------
 2026 Winter Games Day 13: Nordic Combined
+
 Given an array of jump scores for athletes, 
 calculate their start delay times 
 or the cross-country portion of the Nordic Combined.
@@ -34,10 +35,20 @@ should return [30, 23, 38, 15, 0, 8, 18].
  should return [3, 11, 6, 18, 21, 15, 8, 26, 0, 12].
 
 """
+import math
 
 def calculate_start_delays(jump_scores):
+    sorted_jumps = sorted(jump_scores, reverse=True)
+    best_jump = sorted_jumps[0]
+    delays = []
 
-    return jump_scores
+    for jump in jump_scores:
+        difference_to_best = best_jump - jump
+        delay = math.ceil(difference_to_best * 1.5)
+        delays.append(delay)
+
+    print(delays)
+    return delays
 
 # Tests
 calculate_start_delays([120, 110, 125])
