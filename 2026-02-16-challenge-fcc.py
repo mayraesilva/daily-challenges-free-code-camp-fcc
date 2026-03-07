@@ -54,15 +54,10 @@ def get_semifinal_matchups(teams):
     # String parsing
     for team in teams:
         team_and_points = team.split(':')
-        teams_dict[team_and_points[0]] = team_and_points[1].split('-')
+        team_points_str = team_and_points[1].split('-')
+        team_name = team_and_points[0]
+        teams_dict[team_name] = [int(point) for point in team_points_str]
 
-    #print(teams_dict)
-
-    for team, points in teams_dict.items():
-        # Transforming into integers
-        teams_dict[team] = [int(point) for point in points]
-    
-    #print(teams_dict)
 
     for team, points in teams_dict.items():
         # Calculating the points
