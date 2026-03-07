@@ -57,27 +57,58 @@ def check_eligibility(athlete_weights, sled_weight):
     maximum_bobsled_4_people_team = 630
 
     team_size = len(athlete_weights)
+    team_weight = sum(athlete_weights)
+    bobsled_weight = team_weight + sled_weight
+
+    eligibility_status = ["Eligeble", "Not Eligeble"]
 
     if team_size == 1:
         if sled_weight < minimum_sled_weight_1_person_team:
-            return "Not Eligible"
-  
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        
+        if bobsled_weight > maximum_bobsled_1_person_team:
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        else:
+            print(eligibility_status[0])
+            return eligibility_status[0]
+
     if team_size == 2:
         if sled_weight < minimum_sled_weight_2_people_team:
-            return "Not Eligible"
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        
+
+        if bobsled_weight > maximum_bobsled_2_people_team:
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        else:
+            print(eligibility_status[0])
+            return eligibility_status[0]
+        
         
     if team_size == 4:
         if sled_weight < minimum_sled_weight_4_people_team:
-            return "Not Eligible"
-    
-    return athlete_weights
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        
+
+        if bobsled_weight > maximum_bobsled_4_people_team:
+            print(eligibility_status[1])
+            return eligibility_status[1]
+        else:
+            print(eligibility_status[0])
+            return eligibility_status[0]
+
+
 
 # Tests
 check_eligibility([78], 165)
-#check_eligibility([80], 160)
-#check_eligibility([80], 170)
-#check_eligibility([85, 90], 170)
-#check_eligibility([85, 95], 168)
-#check_eligibility([110, 102, 90, 106], 222)
-#check_eligibility([106, 99, 90, 88], 205)
-#check_eligibility([106, 99, 103, 96], 227)
+check_eligibility([80], 160)
+check_eligibility([80], 170)
+check_eligibility([85, 90], 170)
+check_eligibility([85, 95], 168)
+check_eligibility([110, 102, 90, 106], 222)
+check_eligibility([106, 99, 90, 88], 205)
+check_eligibility([106, 99, 103, 96], 227)
