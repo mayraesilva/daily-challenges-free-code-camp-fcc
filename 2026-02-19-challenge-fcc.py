@@ -29,6 +29,10 @@ Tests
 9. avalanche_risk("Deep", "Very Steep") should return "Risky".
 """
 def avalanche_risk(snow_depth, slope):
+    SAFE = "Safe"
+    RISKY = "Riscky"
+
+    
 
     return snow_depth
 
