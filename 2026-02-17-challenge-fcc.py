@@ -60,46 +60,35 @@ def check_eligibility(athlete_weights, sled_weight):
     team_weight = sum(athlete_weights)
     bobsled_weight = team_weight + sled_weight
 
+
     eligibility_status = ["Eligible", "Not Eligible"]
+    ELIGIBLE = "Eligible"
+    NOT_ELIGIBLE = "Not Eligible"
 
-    if team_size == 1:
-        if sled_weight < minimum_sled_weight_1_person_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        
-        if bobsled_weight > maximum_bobsled_1_person_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        else:
-            print(eligibility_status[0])
-            return eligibility_status[0]
+    requeriments = {
+        1: (minimum_sled_weight_1_person_team, maximum_bobsled_1_person_team),
+        2: (minimum_sled_weight_2_people_team, maximum_bobsled_2_people_team),
+        4: (minimum_sled_weight_4_people_team, maximum_bobsled_4_people_team),
+    }
 
-    if team_size == 2:
-        if sled_weight < minimum_sled_weight_2_people_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        
+    team_req = requeriments[team_size]
+    is_sled_weight_valid = sled_weight > team_req[0]
+    is_bobsled_weight_valid = bobsled_weight < team_req[1]
 
-        if bobsled_weight > maximum_bobsled_2_people_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        else:
-            print(eligibility_status[0])
-            return eligibility_status[0]
-        
-        
-    if team_size == 4:
-        if sled_weight < minimum_sled_weight_4_people_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        
+    if is_sled_weight_valid and is_bobsled_weight_valid:
+        return ELIGIBLE
+    else:
+        return NOT_ELIGIBLE
 
-        if bobsled_weight > maximum_bobsled_4_people_team:
-            print(eligibility_status[1])
-            return eligibility_status[1]
-        else:
-            print(eligibility_status[0])
-            return eligibility_status[0]
+
+    #if team_size == 1:
+        #is_sled_weight_valid = sled_weight > minimum_sled_weight_1_person_team
+        #is_bobsled_weight_valid = bobsled_weight < maximum_bobsled_1_person_team
+
+        #if is_sled_weight_valid and is_bobsled_weight_valid:
+         #   return eligibility_status[0]
+        #else:
+         #   return eligibility_status[1]
 
 
 
