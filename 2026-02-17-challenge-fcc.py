@@ -60,7 +60,7 @@ def check_eligibility(athlete_weights, sled_weight):
     team_weight = sum(athlete_weights)
     bobsled_weight = team_weight + sled_weight
 
-    eligibility_status = ["Eligeble", "Not Eligeble"]
+    eligibility_status = ["Eligible", "Not Eligible"]
 
     if team_size == 1:
         if sled_weight < minimum_sled_weight_1_person_team:
