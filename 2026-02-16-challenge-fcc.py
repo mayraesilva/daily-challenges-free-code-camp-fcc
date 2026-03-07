@@ -59,14 +59,23 @@ def get_semifinal_matchups(teams):
         teams_dict[team_name] = [int(point) for point in team_points_str]
 
 
-    for team, points in teams_dict.items():
-        # Calculating the points
-        wins  =points[0] * 3
-        overtime_wins = points[1] * 2
-        overtime_losses = points[2]
+    # Calculating the points
+    WIN_POINTS = 3
+    OT_WIN_POINTS = 2
+    OT_LOSSES_POINTS = 1
+
+    WIN_INDEX = 0
+    OVERTIME_WIN_INDEX = 1
+    OVERTIME_LOSSES_INDEX = 2
+
+    for team, matches in teams_dict.items():
+
+        wins_score  = matches[WIN_INDEX] * WIN_POINTS
+        overtime_wins_score = matches[OVERTIME_WIN_INDEX] * OT_WIN_POINTS
+        overtime_losses_score = matches[OVERTIME_LOSSES_INDEX] * OT_LOSSES_POINTS
         
         #Final score for team
-        teams_dict[team] = wins + overtime_wins + overtime_losses
+        teams_dict[team] = wins_score + overtime_wins_score + overtime_losses_score
     
     
     # Sort teams by score
