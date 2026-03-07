@@ -48,7 +48,6 @@ def get_semifinal_matchups(teams):
     
     teams_dict = {}
     teams_sorted = {}
-    teams_name = []
     best_teams = []
 
     # String parsing
