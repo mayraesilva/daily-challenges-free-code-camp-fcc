@@ -53,7 +53,7 @@ def get_semifinal_matchups(teams):
 
     # String parsing
     for team in teams:
-        team_and_points = team.split(':',1)
+        team_and_points = team.split(':')
         teams_dict[team_and_points[0]] = team_and_points[1].split('-')
 
     #print(teams_dict)
