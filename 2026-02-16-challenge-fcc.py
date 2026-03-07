@@ -47,22 +47,34 @@ should return "The semi-final games will be JPN vs ITA and AUT vs KOR.".
 def get_semifinal_matchups(teams):
     
     teams_dict = {}
+    teams_sorted ={}
 
 
     for team in teams:
         team_and_points = team.split(':',1)
         teams_dict[team_and_points[0]] = team_and_points[1].split('-')
 
+    #print(teams_dict)
+
+    for team, points in teams_dict.items():
+        # Transforming into integers
+        teams_dict[team] = [int(point) for point in points]
+    
     print(teams_dict)
 
     for team, points in teams_dict.items():
-        teams_dict[team] = [int(point) for point in points]
-
+        # Calculating the points
+        wins  =points[0] * 3
+        overtime_wins = points[1] * 2
+        overtime_losses = points[2]
+        
+        #Final score for team
+        teams_dict[team] = wins + overtime_wins + overtime_losses
     
-
-    
-
     print(teams_dict)
+    teams_sorted = dict(sorted(teams_dict.items(), key=lambda item: item[1], reverse=True))
+    print(teams_sorted)
+    
         
 
     return teams
