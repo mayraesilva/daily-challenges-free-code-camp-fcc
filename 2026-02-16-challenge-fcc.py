@@ -68,6 +68,8 @@ def get_semifinal_matchups(teams):
     OVERTIME_WIN_INDEX = 1
     OVERTIME_LOSSES_INDEX = 2
 
+    teams_scores = {}
+
     for team, matches in teams_dict.items():
 
         wins_score  = matches[WIN_INDEX] * WIN_POINTS
@@ -75,20 +77,14 @@ def get_semifinal_matchups(teams):
         overtime_losses_score = matches[OVERTIME_LOSSES_INDEX] * OT_LOSSES_POINTS
         
         #Final score for team
-        teams_dict[team] = wins_score + overtime_wins_score + overtime_losses_score
+        teams_scores[team] = wins_score + overtime_wins_score + overtime_losses_score
     
     
     # Sort teams by score
-    teams_sorted = dict(sorted(teams_dict.items(), key=lambda item: item[1], reverse=True))
-    #print(teams_sorted)
-
-    # String preparation
-    teams_name = list(teams_sorted.keys())
-
-    for team in teams_name:
-        if teams_name.index(team) <= 3:
-            best_teams.append(team)
+    teams_sorted = list(sorted(teams_scores.items(), key=lambda item: item[1], reverse=True))
     
+    # Select the best teams
+    best_teams = [team[0] for team in teams_sorted[:4]]
     
     semi_finals = f"The semi-final games will be {best_teams[0]} vs {best_teams[3]} and {best_teams[1]} vs {best_teams[2]}."
     print(semi_finals)
