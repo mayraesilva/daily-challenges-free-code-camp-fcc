@@ -47,9 +47,11 @@ should return "The semi-final games will be JPN vs ITA and AUT vs KOR.".
 def get_semifinal_matchups(teams):
     
     teams_dict = {}
-    teams_sorted ={}
+    teams_sorted = {}
+    teams_name = []
+    best_teams = []
 
-
+    # String parsing
     for team in teams:
         team_and_points = team.split(':',1)
         teams_dict[team_and_points[0]] = team_and_points[1].split('-')
@@ -60,7 +62,7 @@ def get_semifinal_matchups(teams):
         # Transforming into integers
         teams_dict[team] = [int(point) for point in points]
     
-    print(teams_dict)
+    #print(teams_dict)
 
     for team, points in teams_dict.items():
         # Calculating the points
@@ -71,13 +73,23 @@ def get_semifinal_matchups(teams):
         #Final score for team
         teams_dict[team] = wins + overtime_wins + overtime_losses
     
-    print(teams_dict)
-    teams_sorted = dict(sorted(teams_dict.items(), key=lambda item: item[1], reverse=True))
-    print(teams_sorted)
     
-        
+    # Sort teams by score
+    teams_sorted = dict(sorted(teams_dict.items(), key=lambda item: item[1], reverse=True))
+    #print(teams_sorted)
 
-    return teams
+    # String preparation
+    teams_name = list(teams_sorted.keys())
+
+    for team in teams_name:
+        if teams_name.index(team) <= 3:
+            best_teams.append(team)
+    
+    
+    semi_finals = f"The semi-final games will be {best_teams[0]} vs {best_teams[3]} and {best_teams[2]} vs {best_teams[3]}."
+    print(semi_finals)
+
+    return semi_finals
 
 
 
