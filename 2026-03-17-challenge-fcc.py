@@ -33,7 +33,24 @@ Tests:
 
 def get_milestone(years):
 
-    return years
+    milestones = {
+        range(1, 5) : 'Paper', range(5,10) : 'Wood', range(10, 25) : 'Tin', range(25, 40) : 'Silver',
+             range(40, 50) : 'Ruby', range(50,60) : 'Gold',
+             range(60,70) : 'Diamond', range(70, 10000) : 'Platinum' 
+             }
+    
+    if years < 1:
+        print("Newlyweds")
+        return "Newlyweds"
+    
+
+    for milestone_to_be in milestones.keys():
+        if years in milestone_to_be:
+            milestone = milestones[milestone_to_be]
+            print(milestone)
+            return milestone
+
+
 
 # Tests
 
