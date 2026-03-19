@@ -79,11 +79,12 @@ def invert_matrix(matrix):
             else:
                 new_line.append(first_value) # swap places
 
-            new_matrix.append(new_line) # Add new line
+        new_matrix.append(new_line) # Add new line
     
+    print('Size of original matrix ', len(matrix))
+    print('Size of new matrix ', len(new_matrix))
+
     print(new_matrix)
-
-
     return new_matrix
 
 
