@@ -52,17 +52,14 @@ def invert_matrix(matrix):
         for element in line:
             if first_value == '': # Find the first value
                 first_value = element
-                print(first_value)
                 continue
 
             if element == first_value: # Check if the next one is equal
-                #print('teste')
                 continue
 
             else:
                 second_value = element # Get second value
                 values_obtained = True
-                print(second_value)
                 break
 
         if values_obtained:
@@ -81,8 +78,6 @@ def invert_matrix(matrix):
 
         new_matrix.append(new_line) # Add new line
     
-    print('Size of original matrix ', len(matrix))
-    print('Size of new matrix ', len(new_matrix))
 
     print(new_matrix)
     return new_matrix
@@ -90,7 +85,14 @@ def invert_matrix(matrix):
 
 #Tests
 invert_matrix([["a", "b"], ["a", "a"]])
-#invert_matrix([[1, 0, 1], [1, 1, 1], [0, 1, 0]])
-#invert_matrix([["apple", "banana", "banana", "apple"], ["banana", "apple", "apple", "banana"], ["banana", "banana", "banana", "apple"]])
-#invert_matrix([[6, 7, 7, 7, 6], [7, 6, 7, 6, 7], [7, 7, 6, 7, 7], [7, 6, 7, 6, 7], [6, 7, 7, 7, 6]])
-#invert_matrix([[1.2, 2.1, 2.1, 2.1], [2.1, 1.2, 2.1, 1.2], [1.2, 1.2, 2.1, 2.1]])
+invert_matrix([[1, 0, 1], [1, 1, 1], [0, 1, 0]])
+invert_matrix([["apple", "banana", "banana", "apple"], ["banana", "apple", "apple", "banana"], ["banana", "banana", "banana", "apple"]])
+invert_matrix([[6, 7, 7, 7, 6], [7, 6, 7, 6, 7], [7, 7, 6, 7, 7], [7, 6, 7, 6, 7], [6, 7, 7, 7, 6]])
+invert_matrix([[1.2, 2.1, 2.1, 2.1], [2.1, 1.2, 2.1, 1.2], [1.2, 1.2, 2.1, 2.1]])
+
+"""
+We can generalize this problem as:
+1. Extract unique values (domain discovery)
+2. Build mapping between values
+3. Apply mapping to every element
+"""
