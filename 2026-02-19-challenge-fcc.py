@@ -30,11 +30,15 @@ Tests
 """
 def avalanche_risk(snow_depth, slope):
     SAFE = "Safe"
-    RISKY = "Riscky"
+    RISKY = "Risky"
+
+    if snow_depth == 'Shallow':
+        avalanche_risk = SAFE
+        return avalanche_risk
 
     
 
-    return snow_depth
+    return ''
 
 #Tests
 avalanche_risk("Shallow", "Gentle")
