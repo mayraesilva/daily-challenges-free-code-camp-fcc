@@ -22,7 +22,29 @@ Tests:
 3. can_retake("2026-03-23T09:25:00", "2026-03-25T09:25:00") should return True.
 4. can_retake("2026-03-25T11:50:00", "2026-03-23T11:49:59") should return False.
 """
+
+from datetime import datetime
+
 def can_retake(finish_time, current_time):
+
+    minimum_hours = 48 # minimum hours before retaking and exam.
+    time_format = "%Y-%m-%dT%H:%M:%S"
+
+    datetime_finish_time = datetime.strftime(finish_time, time_format)
+    datetime_current_time = datetime.strftime(current_time, time_format)
+
+    time_difference = datetime_current_time - datetime_finish_time
+
+    if time_difference >= minimum_hours:
+        print(" You can retake the exam!")
+        return True
+    else:
+        print(f"You have to wait at least {minimum_hours} hours to retake the exam")
+        return False
+
+
+
+
 
     return finish_time
 
