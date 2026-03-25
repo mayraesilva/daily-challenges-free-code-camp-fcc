@@ -30,8 +30,8 @@ def can_retake(finish_time, current_time):
     minimum_hours = 48 # minimum hours before retaking and exam.
     time_format = "%Y-%m-%dT%H:%M:%S"
 
-    datetime_finish_time = datetime.strftime(finish_time, time_format)
-    datetime_current_time = datetime.strftime(current_time, time_format)
+    datetime_finish_time = datetime.strptime(finish_time, time_format)
+    datetime_current_time = datetime.strptime(current_time, time_format)
 
     time_difference = datetime_current_time - datetime_finish_time
 
@@ -39,14 +39,10 @@ def can_retake(finish_time, current_time):
         print(" You can retake the exam!")
         return True
     else:
-        print(f"You have to wait at least {minimum_hours} hours to retake the exam")
+        print(f"You have to wait at least {minimum_hours} hours to retake the exam.")
         return False
 
 
-
-
-
-    return finish_time
 
 
 #Tests
