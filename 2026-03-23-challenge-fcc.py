@@ -1,6 +1,6 @@
 """
 Hi! My name is Mayra Silva and I'm studying to become a data scientist.
-Today I'll be solving the daily challenge available on 23th, March, 2026.
+Today I'll be solving the daily challenge available on 23rd, March, 2026.
 
 ----------------------------
 No Consecutive Repeats
@@ -28,7 +28,7 @@ def has_no_repeats(string_to_be_analyzed):
         if index == string_size - 1:
             break
 
-        if char == string_to_be_analized[index + 1]:
+        if char == string_to_be_analyzed[index + 1]:
             print(" There is at least a repetition, so its False")
             return False
     
