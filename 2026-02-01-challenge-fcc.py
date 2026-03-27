@@ -33,6 +33,27 @@ from datetime import datetime, timedelta
 def digital_detox(logs):
 
     time_log_format = "%Y-%m-%d %H:%M:%S"
+    logs_datetime = []
+    minimm_time_off = timedelta(hours=4) #minimum hours to be offline before checking socials a again
+    max_logs_a_day = 2 
+    status = None #The status can be true or false, based on the conditions
+    how_many_logs_registered = len(logs)
+
+    # Step 1: Make sure the data type is ready
+
+    for log_string in logs:
+        log_datetime = datetime.strptime(log_string, time_log_format)
+        logs_datetime.append(log_datetime)
+
+
+    for index, log in enumerate(logs):
+        logs_a_day = 0
+
+
+
+
+
+
     return logs
 
 
