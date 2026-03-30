@@ -45,9 +45,17 @@ def digital_detox(logs):
         log_datetime = datetime.strptime(log_string, time_log_format)
         logs_datetime.append(log_datetime)
 
+    # Step 2: Check if in the same day we have more than one login and the interval between logs
 
-    for index, log in enumerate(logs):
+    for index, log in enumerate(logs_datetime):
         logs_a_day = 0
+
+        if log == logs_datetime[index + 1]:
+            logs_a_day += 1
+            
+        
+
+
 
 
 
