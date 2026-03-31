@@ -34,8 +34,6 @@ def digital_detox(logs):
 
     time_log_format = "%Y-%m-%d %H:%M:%S"
     logs_datetime = []
-    minimm_time_off = timedelta(hours=4) #minimum hours to be offline before checking socials a again
-    max_logs_a_day = 2 
     status = None #The status can be true or false, based on the conditions
     how_many_logs_registered = len(logs)
 
@@ -46,12 +44,25 @@ def digital_detox(logs):
         logs_datetime.append(log_datetime)
 
     # Step 2: Check if in the same day we have more than one login and the interval between logs
+    minimm_time_off = timedelta(hours=4) #minimum hours to be offline before checking socials a again
+    logs_a_day = 0
+    max_logs_a_day = 2 
 
     for index, log in enumerate(logs_datetime):
-        logs_a_day = 0
-
-        if log == logs_datetime[index + 1]:
+        todays_log = log
+        next_log = logs_datetime[index + 1]
+        
+        if todays_log.day == next_log.day:
             logs_a_day += 1
+        
+        if logs_a_day > 2:
+            print("You should reduce the logs per day")
+            status = False
+            return status
+        
+
+        
+
             
         
 
