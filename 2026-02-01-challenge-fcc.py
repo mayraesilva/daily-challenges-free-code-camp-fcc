@@ -43,22 +43,57 @@ def digital_detox(logs):
         log_datetime = datetime.strptime(log_string, time_log_format)
         logs_datetime.append(log_datetime)
 
-    # Step 2: Check if in the same day we have more than one login and the interval between logs
-    minimm_time_off = timedelta(hours=4) #minimum hours to be offline before checking socials a again
+    # Step 2: Check if in the same day we have more than one login  a day
+    minimum_time_off = timedelta(hours=4) #minimum hours to be offline before checking socials a again
     logs_a_day = 0
     max_logs_a_day = 2 
 
     for index, log in enumerate(logs_datetime):
+
         todays_log = log
-        next_log = logs_datetime[index + 1]
-        
+
+        if index + 1 < how_many_logs_registered:
+            next_log = logs_datetime[index + 1]
+
+        else:
+            next_log = todays_log
+
+        hours_difference = next_log - todays_log
+
         if todays_log.day == next_log.day:
-            logs_a_day += 1
-        
-        if logs_a_day > 2:
-            print("You should reduce the logs per day")
-            status = False
-            return status
+            
+            if todays_log == next_log: # we reached the last log
+                break
+
+            else:
+                logs_a_day += 1
+
+            if logs_a_day > max_logs_a_day:
+                print("You should reduce the logs per day")
+                status = False
+                return status
+            
+            # Step 3: Considering we have same day logs, check the intervals between logs
+
+            elif hours_difference < minimum_time_off:
+                print("You should give more space between logs")
+                status = False
+                return status 
+            
+        else:
+            logs_a_day = 0
+
+    #  Step 4: If we've been through all of the logs and none conditions are met
+    print('You are on the right track!')
+    status = True
+    return status
+            
+    
+    
+
+            
+
+
         
 
         
