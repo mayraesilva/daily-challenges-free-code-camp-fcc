@@ -61,7 +61,50 @@ should return 383.
 
 def get_cleanup_score(items):
 
-    return items
+    dict_of_items = {
+        'bottle' : 10, 'can' : 6, 'bag': 8,
+        'tire': 35, 'straw' : 4, 'cardboard' : 3,
+        'newspaper': 3, 'shoe' : 12, 'electronics' : 25,
+        'battery' : 18, 'mattress': 38
+                     }
+
+    score = 0
+    five_multiples= 1 
+    current_item = ''
+    current_item_sequence = 0 
+    points = 0
+    
+    for index, item in enumerate(items):
+        
+
+        # Checking if it is a rare item or not
+        if type(item) == type([]): 
+            points += item[1]
+    
+        elif item in dict_of_items.keys():
+            points += dict_of_items[item]
+
+        # Checking if it is a sequence of occurrences
+        if item == current_item:
+            current_item_sequence += 1
+
+        else:
+            current_item = item
+            current_item_sequence = 1
+
+        # Add streak bonus if applicable
+        if current_item_sequence > 1:
+            points += current_item_sequence
+        
+        # Checking if it is a multiple of five
+        if  index > 0 and index % 5 == 0:
+            five_multiples += 1
+            points = points * five_multiples
+        
+        score = points
+          
+    print(score)
+    return score
 
 
 # Tests
