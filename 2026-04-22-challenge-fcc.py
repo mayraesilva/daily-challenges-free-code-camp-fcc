@@ -75,7 +75,7 @@ def get_cleanup_score(items):
     points = 0
     
     for index, item in enumerate(items):
-        
+        print(f'Item to be evaluated: {item}')
 
         # Checking if it is a rare item or not
         if type(item) == type([]): 
@@ -87,14 +87,16 @@ def get_cleanup_score(items):
         # Checking if it is a sequence of occurrences
         if item == current_item:
             current_item_sequence += 1
-
+            print(current_item_sequence)
         else:
             current_item = item
             current_item_sequence = 1
+            print(points)
 
         # Add streak bonus if applicable
         if current_item_sequence > 1:
             points += current_item_sequence
+            print(points)
         
         # Checking if it is a multiple of five
         if  index > 0 and index % 5 == 0:
@@ -108,8 +110,8 @@ def get_cleanup_score(items):
 
 
 # Tests
-get_cleanup_score(["bottle", "straw", "shoe", "battery"])
-get_cleanup_score(["electronics", "straw", "newspaper", "bottle", "bag"]) 
+# get_cleanup_score(["bottle", "straw", "shoe", "battery"])
+#get_cleanup_score(["electronics", "straw", "newspaper", "bottle", "bag"]) 
 get_cleanup_score(["shoe", "can", "can", "can", "bottle", "bottle", "straw", "straw", "straw"])
-get_cleanup_score(["mattress", ["rare", 80], "tire", "tire", "tire", ["rare", 95]])
-get_cleanup_score(["bottle", "can", "can", "shoe", "shoe", ["rare", 56], "bottle", "bottle", "can", "can", "electronics", "bottle", ["rare", 48], "bottle", "can", "can", "can", "can", "can", "can", "can"])
+# get_cleanup_score(["mattress", ["rare", 80], "tire", "tire", "tire", ["rare", 95]])
+# get_cleanup_score(["bottle", "can", "can", "shoe", "shoe", ["rare", 56], "bottle", "bottle", "can", "can", "electronics", "bottle", ["rare", 48], "bottle", "can", "can", "can", "can", "can", "can", "can"])
