@@ -70,12 +70,12 @@ def get_cleanup_score(items):
 
     score = 0
     five_multiples= 1 
-    current_item = ''
-    current_item_sequence = 0 
-    print('list size: ', len(items))
+    previous_item = ''
+    previous_item_sequence = 0 
+    #print('list size: ', len(items))
     
     for index, item in enumerate(items):
-        print(f'Item to be evaluated: {item}')
+        #print(f'Item to be evaluated: {item}')
         points = 0
 
         # Checking if it is a rare item or not
@@ -87,37 +87,40 @@ def get_cleanup_score(items):
 
 
         # Checking if it is a sequence of occurrences
-        if item == current_item:
-            current_item_sequence += 1
-            print(current_item_sequence)
+        if item == previous_item:
+            previous_item_sequence += 1
+            #print previous_item_sequence)
+
         else:
-            current_item = item
-            current_item_sequence = 1
-            print(points)
+            previous_item = item
+            previous_item_sequence = 1
+            #print(points)
 
 
         # Add streak bonus if applicable
-        if current_item_sequence > 1:
-            points += current_item_sequence
-            print(points)
+        if  previous_item_sequence > 1:
+            bonus_points = previous_item_sequence - 1
+            points += bonus_points
+            #print(points)
         
-        print('index: ', index)
-
+        #print('index: ', index)
+        #print(f'index {index}, {item}, points {points}')
         # Checking if it is a multiple of five
         if  index > 0 and (index + 1) % 5 == 0:
             five_multiples += 1
             points = points * five_multiples
-            print('active')
+            #print('active')
+        #print(f'index {index}, {item}, points {points}')
         
         score += points
-          
+        #print('Score atualizado ', score)  
     print(score)
     return score
 
 
 # Tests
-# get_cleanup_score(["bottle", "straw", "shoe", "battery"])
-#get_cleanup_score(["electronics", "straw", "newspaper", "bottle", "bag"]) 
+get_cleanup_score(["bottle", "straw", "shoe", "battery"])
+get_cleanup_score(["electronics", "straw", "newspaper", "bottle", "bag"]) 
 get_cleanup_score(["shoe", "can", "can", "can", "bottle", "bottle", "straw", "straw", "straw"])
-# get_cleanup_score(["mattress", ["rare", 80], "tire", "tire", "tire", ["rare", 95]])
-# get_cleanup_score(["bottle", "can", "can", "shoe", "shoe", ["rare", 56], "bottle", "bottle", "can", "can", "electronics", "bottle", ["rare", 48], "bottle", "can", "can", "can", "can", "can", "can", "can"])
+get_cleanup_score(["mattress", ["rare", 80], "tire", "tire", "tire", ["rare", 95]])
+get_cleanup_score(["bottle", "can", "can", "shoe", "shoe", ["rare", 56], "bottle", "bottle", "can", "can", "electronics", "bottle", ["rare", 48], "bottle", "can", "can", "can", "can", "can", "can", "can"])
