@@ -72,10 +72,11 @@ def get_cleanup_score(items):
     five_multiples= 1 
     current_item = ''
     current_item_sequence = 0 
-    points = 0
+    print('list size: ', len(items))
     
     for index, item in enumerate(items):
         print(f'Item to be evaluated: {item}')
+        points = 0
 
         # Checking if it is a rare item or not
         if type(item) == type([]): 
@@ -83,6 +84,7 @@ def get_cleanup_score(items):
     
         elif item in dict_of_items.keys():
             points += dict_of_items[item]
+
 
         # Checking if it is a sequence of occurrences
         if item == current_item:
@@ -93,17 +95,21 @@ def get_cleanup_score(items):
             current_item_sequence = 1
             print(points)
 
+
         # Add streak bonus if applicable
         if current_item_sequence > 1:
             points += current_item_sequence
             print(points)
         
+        print('index: ', index)
+
         # Checking if it is a multiple of five
-        if  index > 0 and index % 5 == 0:
+        if  index > 0 and (index + 1) % 5 == 0:
             five_multiples += 1
             points = points * five_multiples
+            print('active')
         
-        score = points
+        score += points
           
     print(score)
     return score
