@@ -34,11 +34,24 @@ def avalanche_risk(snow_depth, slope):
 
     if snow_depth == 'Shallow':
         avalanche_risk = SAFE
+        print(avalanche_risk)
         return avalanche_risk
-
     
-
-    return ''
+    elif snow_depth == 'Moderate' and slope != 'Gentle':
+        avalanche_risk = RISKY
+        print(avalanche_risk)
+        return avalanche_risk
+    
+    elif snow_depth == 'Deep'and slope != 'Gentle':
+        avalanche_risk = RISKY
+        print(avalanche_risk)
+        return avalanche_risk
+    
+    else:
+        avalanche_risk = SAFE
+        print(avalanche_risk)
+        return avalanche_risk
+    
 
 #Tests
 avalanche_risk("Shallow", "Gentle")
@@ -46,7 +59,7 @@ avalanche_risk("Shallow", "Steep")
 avalanche_risk("Shallow", "Very Steep")
 avalanche_risk("Moderate", "Gentle")
 avalanche_risk("Moderate", "Steep")
-avalanche_risk("Moderate", "Very Steep")
-avalanche_risk("Deep", "Gentle")
-avalanche_risk("Deep", "Steep")
-avalanche_risk("Deep", "Very Steep")
+# avalanche_risk("Moderate", "Very Steep")
+# avalanche_risk("Deep", "Gentle")
+# avalanche_risk("Deep", "Steep")
+# avalanche_risk("Deep", "Very Steep")
