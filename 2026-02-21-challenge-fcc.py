@@ -42,6 +42,7 @@ For example, given:
   [".", "R", ".", ".", "."],
   [".", ".", ".", ".", "."]
 ]
+
 Return "R: 2". The two red stones in ring 1 are tied for the closest and are the only two stones closer than yellows closest.
 
 Tests:
@@ -55,12 +56,12 @@ Tests:
 
 def score_curling(house):
     # Remember house is a matrix 5x5
-
     # Important positions
     button = house[2, 2]
 
     inner_ring = [house[2,1], house[1,1], house[1,2], 
-                  house[1,3], house[3,1], house[3,2], house[3, 3], house[2,3]]
+                  house[1,3], house[3,1], house[3,2],
+                    house[3, 3], house[2,3]]
     
     external_ring = []
     return house
