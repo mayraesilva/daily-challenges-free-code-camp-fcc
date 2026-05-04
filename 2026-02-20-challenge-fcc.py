@@ -49,12 +49,19 @@ Tests:
 
 def is_valid_trick(trick_name):
 
+
+    # Valid words
     first_words = ["Misty", "Ghost", "Thunder", "Solar", "Sky", 
                    "Phantom", "Frozen", "Polar"]
     
     second_words = ["Twister", "Icequake", "Avalanche", "Vortex", 
                     "Snowstorm", "Frostbite", "Blizzard", "Shadow"]
     
+    #Variable that we need:
+    trick_name_list = trick_name.split()
+    print(trick_name_list)
+
+
 
     return trick_name
 
