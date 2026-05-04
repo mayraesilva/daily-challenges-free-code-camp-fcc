@@ -13,7 +13,6 @@ and the second word is in the list of valid second words.
 
 The two words will be separated by a single space.
 
-
 Valid first words:
 
 "Misty"
@@ -25,7 +24,6 @@ Valid first words:
 "Frozen"
 "Polar"
 
-
 Valid second words:
 
 "Twister"
@@ -36,6 +34,7 @@ Valid second words:
 "Frostbite"
 "Blizzard"
 "Shadow"
+
 -----------------------------------
 Tests:
 1. is_valid_trick("Polar Vortex") should return True.
@@ -48,8 +47,6 @@ Tests:
 """
 
 def is_valid_trick(trick_name):
-
-
     # Valid words
     first_words = ["Misty", "Ghost", "Thunder", "Solar", "Sky", 
                    "Phantom", "Frozen", "Polar"]
@@ -57,13 +54,33 @@ def is_valid_trick(trick_name):
     second_words = ["Twister", "Icequake", "Avalanche", "Vortex", 
                     "Snowstorm", "Frostbite", "Blizzard", "Shadow"]
     
-    #Variable that we need:
+    # We need to split the string:    
     trick_name_list = trick_name.split()
-    print(trick_name_list)
+    first_word = trick_name_list[0]
+    second_word = trick_name_list[1]
+    IS_VALID = True
+    NOT_VALID = False
 
+    # First word analysis
+    if first_word in first_words:
+        print('First word is valid!')
+    
+    else:
+        print("First word isn't valid :( ")
+        return NOT_VALID
+    
+    # Second word analysis
+    if second_word in second_words:
+        print('Second word is valid!')
 
+    else:
+        print("Second word isn't valid :( ")
+        return NOT_VALID
 
-    return trick_name
+    # Considering it all went well
+    print(f'The trick {trick_name} is valid')
+    return IS_VALID    
+
 
 #Tests
 is_valid_trick("Polar Vortex")
