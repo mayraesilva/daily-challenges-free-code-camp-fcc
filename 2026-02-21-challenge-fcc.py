@@ -57,7 +57,7 @@ Tests:
 def score_curling(house):
     # Remember house is a matrix 5x5
     # Important positions
-    button = house[2, 2]
+    button = house[2][2]
 
   # As the postions of the inner ring are contants 
     inner_ring = ((2, 1), (1, 1), (1, 2), 
@@ -84,6 +84,7 @@ def score_curling(house):
     elif button != '.' and inner_ring_analysis["team"] != button:
         print(f'The team {button} won with 1 point!')
         result = f'{button}: 1'
+        print(result)
         return result
 
     current_team = inner_ring_analysis["team"]
@@ -106,10 +107,10 @@ def evaluate_inner_ring(house, inner_ring):
 
     # Using matrix syntax (m for rows and n  for columns)
     for index, (m, n) in enumerate(inner_ring):
-        element_being_evaluated = house[m,n]
+        element_being_evaluated = house[m][n]
         
-        if house[m,n] != ".":
-            print(f'Team scoring, {element_being_evaluated}')
+        if house[m][n] != ".":
+            #print(f'Team scoring, {element_being_evaluated}')
 
             # Checking if is the first team to score
             if scoring_team == '':  
@@ -139,7 +140,7 @@ def evaluate_outer_ring(house, outer_ring, team_scoring, current_score):
 
     # Using matrix syntax (m for rows and n  for columns)
     for index, (m, n) in enumerate(outer_ring):
-        element_being_evaluated = house[m,n]
+        element_being_evaluated = house[m][n]
 
         # If no points were scored in the inner ring:
         if scoring_team == '':
