@@ -119,7 +119,7 @@ def evaluate_inner_ring(house, inner_ring):
             # Checking if it is the same team scoring or is a different one
             if scoring_team != element_being_evaluated:
                 result = "TIE"
-                print(result)
+                #print(result)
                 return result
             
             # As the previous if wasn't activated
@@ -127,7 +127,7 @@ def evaluate_inner_ring(house, inner_ring):
     
 
     scoring = { 'team': scoring_team, 'score': scoring_team_points}
-    print(f'The current scoring is {scoring}')
+    #print(f'The current scoring is {scoring}')
     return scoring
 
 
@@ -151,15 +151,15 @@ def evaluate_outer_ring(house, outer_ring, team_scoring, current_score):
         # If we find another team in the outer ring, the stones from the winning team doesn't count.
         if element_being_evaluated != scoring_team and element_being_evaluated != '.':
             
-            print(f'Different team, stop counting.')
-            print( f'Team scoring {scoring_team} with {scoring_team_points} points')
+            #print(f'Different team, stop counting.')
+            #print( f'Team scoring {scoring_team} with {scoring_team_points} points')
 
             if scoring_team_points == 0:
                 result = 'No points awarded'
                 return result
                 
             result = f'{scoring_team}: {scoring_team_points}'
-            print(result)
+            #print(result)
             return result
         
         elif element_being_evaluated == scoring_team:
@@ -167,7 +167,7 @@ def evaluate_outer_ring(house, outer_ring, team_scoring, current_score):
 
     final_score = scoring_team_points + points_to_be_added
     result = f'{scoring_team}: {final_score}'
-    print(result)
+    #print(result)
     return result
 
 
