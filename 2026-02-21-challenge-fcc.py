@@ -81,13 +81,21 @@ def score_curling(house):
     if button != '.' and inner_ring_analysis['team'] == button:
         inner_ring_analysis['score'] += 1
 
-    else:
+    elif button != '.' and inner_ring_analysis["team"] != button:
         print(f'The team {button} won with 1 point!')
+        result = f'{button}: 1'
+        return result
+
+    current_team = inner_ring_analysis["team"]
+    current_score = inner_ring_analysis["score"]
 
     # If the other team hasn't won, we now evaluate the outer ring 
+    outer_ring_analysis = evaluate_outer_ring(house, outer_ring, current_team, current_score)
 
+    result = outer_ring_analysis
+    print(result)
     
-    return house
+    return result
 
 
 
@@ -107,7 +115,7 @@ def evaluate_inner_ring(house, inner_ring):
             if scoring_team == '':  
                 scoring_team = element_being_evaluated
 
-            # Checking if is the same team scoring or is a different one
+            # Checking if it is the same team scoring or is a different one
             if scoring_team != element_being_evaluated:
                 result = "TIE"
                 print(result)
@@ -126,19 +134,29 @@ def evaluate_inner_ring(house, inner_ring):
 
 def evaluate_outer_ring(house, outer_ring, team_scoring, current_score):
     scoring_team = team_scoring
-    scoring_team_points = 0
+    scoring_team_points = current_score
     points_to_be_added = 0
 
     # Using matrix syntax (m for rows and n  for columns)
     for index, (m, n) in enumerate(outer_ring):
         element_being_evaluated = house[m,n]
+
+        # If no points were scored in the inner ring:
+        if scoring_team == '':
+          scoring_team = element_being_evaluated
+          points_to_be_added  += 1
+
         
-        # If we find other team in the outer ring,, the stones from the winning team doesn't count.
-        if element_being_evaluated != scoring_team or element_being_evaluated != '.':
+        # If we find another team in the outer ring, the stones from the winning team doesn't count.
+        if element_being_evaluated != scoring_team and element_being_evaluated != '.':
             
-            print(f'Different team, stop counting. {element_being_evaluated}')
+            print(f'Different team, stop counting.')
             print( f'Team scoring {scoring_team} with {scoring_team_points} points')
 
+            if scoring_team_points == 0:
+                result = 'No points awarded'
+                return result
+                
             result = f'{scoring_team}: {scoring_team_points}'
             print(result)
             return result
