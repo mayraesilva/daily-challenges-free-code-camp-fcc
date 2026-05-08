@@ -59,12 +59,47 @@ def score_curling(house):
     # Important positions
     button = house[2, 2]
 
-    inner_ring = [house[2,1], house[1,1], house[1,2], 
-                  house[1,3], house[3,1], house[3,2],
-                    house[3, 3], house[2,3]]
+  # As the postions of the inner ring are contants 
+    inner_ring = ((2, 1), (1, 1), (1, 2), 
+                  (1,3), (3, 1), (3, 2),
+                    (3, 3), (2, 3))
     
-    external_ring = []
+   
+ 
+    
     return house
+
+
+
+
+def evaluate_inner_ring(house, inner_ring):
+    scoring_team = ''
+    scoring_team_points = 0
+
+    # Using matrix syntax (m for rows and n  for columns)
+    for index, (m, n) in enumerate(inner_ring):
+        
+        if house[m,n] != ".":
+            print(f'Team scoring, {house[m,n]}')
+
+            # Checking if is the first team to score
+            if scoring_team == '':  
+                scoring_team = house[m,n]
+
+            # Checking if is the same team scoring or is a different one
+            if scoring_team != house[m,n]:
+                result = "No points awarded"
+                print(result)
+                return result
+            
+            # As the previous if wasn't activated
+            scoring_team_points += 1
+    
+
+    scoring = { scoring_team : scoring_team_points}
+    print(f'The current scoring is {scoring}')
+    return scoring
+
 
 
 # Tests
