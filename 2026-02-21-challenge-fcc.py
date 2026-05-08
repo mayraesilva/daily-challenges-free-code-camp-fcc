@@ -63,6 +63,14 @@ def score_curling(house):
     inner_ring = ((2, 1), (1, 1), (1, 2), 
                   (1,3), (3, 1), (3, 2),
                     (3, 3), (2, 3))
+
+    # Checking to see if we already have a tie
+    inner_ring_analysis = evaluate_inner_ring(house, inner_ring)
+
+    if inner_ring_analysis == 'TIE':
+        result = 'No points awarded'
+        print(result)
+        return result
     
    
  
@@ -88,7 +96,7 @@ def evaluate_inner_ring(house, inner_ring):
 
             # Checking if is the same team scoring or is a different one
             if scoring_team != house[m,n]:
-                result = "No points awarded"
+                result = "TIE"
                 print(result)
                 return result
             
