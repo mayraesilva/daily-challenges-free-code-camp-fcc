@@ -63,6 +63,12 @@ def score_curling(house):
     inner_ring = ((2, 1), (1, 1), (1, 2), 
                   (1,3), (3, 1), (3, 2),
                     (3, 3), (2, 3))
+    
+    outer_ring = ((0, 0), (0,1), (0,2), (0,3), (0, 4),
+                  (1, 0), (1, 4),
+                  (2, 0), (2, 4),
+                  (3, 0), (3,4),
+                  (4, 4), (4,1), (4,2), (4,3), (4, 4))
 
     # Checking to see if we already have a tie
     inner_ring_analysis = evaluate_inner_ring(house, inner_ring)
@@ -72,8 +78,14 @@ def score_curling(house):
         print(result)
         return result
     
-   
- 
+    if button != '.' and inner_ring_analysis['team'] == button:
+        inner_ring_analysis['score'] += 1
+
+    else:
+        print(f'The team {button} won with 1 point!')
+
+    # If the other team hasn't won, we now evaluate the outer ring 
+
     
     return house
 
@@ -86,16 +98,17 @@ def evaluate_inner_ring(house, inner_ring):
 
     # Using matrix syntax (m for rows and n  for columns)
     for index, (m, n) in enumerate(inner_ring):
+        element_being_evaluated = house[m,n]
         
         if house[m,n] != ".":
-            print(f'Team scoring, {house[m,n]}')
+            print(f'Team scoring, {element_being_evaluated}')
 
             # Checking if is the first team to score
             if scoring_team == '':  
-                scoring_team = house[m,n]
+                scoring_team = element_being_evaluated
 
             # Checking if is the same team scoring or is a different one
-            if scoring_team != house[m,n]:
+            if scoring_team != element_being_evaluated:
                 result = "TIE"
                 print(result)
                 return result
@@ -104,9 +117,40 @@ def evaluate_inner_ring(house, inner_ring):
             scoring_team_points += 1
     
 
-    scoring = { scoring_team : scoring_team_points}
+    scoring = { 'team': scoring_team, 'score': scoring_team_points}
     print(f'The current scoring is {scoring}')
     return scoring
+
+
+
+
+def evaluate_outer_ring(house, outer_ring, team_scoring, current_score):
+    scoring_team = team_scoring
+    scoring_team_points = 0
+    points_to_be_added = 0
+
+    # Using matrix syntax (m for rows and n  for columns)
+    for index, (m, n) in enumerate(outer_ring):
+        element_being_evaluated = house[m,n]
+        
+        # If we find other team in the outer ring,, the stones from the winning team doesn't count.
+        if element_being_evaluated != scoring_team or element_being_evaluated != '.':
+            
+            print(f'Different team, stop counting. {element_being_evaluated}')
+            print( f'Team scoring {scoring_team} with {scoring_team_points} points')
+
+            result = f'{scoring_team}: {scoring_team_points}'
+            print(result)
+            return result
+        
+        elif element_being_evaluated == scoring_team:
+            points_to_be_added += 1
+
+    final_score = scoring_team_points + points_to_be_added
+    result = f'{scoring_team}: {final_score}'
+    print(result)
+    return result
+
 
 
 
