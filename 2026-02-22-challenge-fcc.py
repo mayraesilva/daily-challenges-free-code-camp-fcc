@@ -59,14 +59,52 @@ should return "Country,Gold,Silver,Bronze,Total\nUSA,3,1,0,4\nGER,2,2,1,5\nJPN,2
 
 def count_medals(winners):
 
+
+    # As we wanna know the winner, we gotta know where to locate them, these are thir indexes
+    first_place = 0
+    second_place = 1
+    third_place = 2
+
+    # Storing the countries
+    countries_dict = {}
+
+    for row in winners: 
+        
+        for country in row:
+    
+            # Get index of country
+            position = row.index(f"{country}")
+
+            if country in countries_dict.keys():
+                print('The country is already a key')
+            else:
+            # The key is another dict because we have to keep the order for the podium
+                countries_dict[country] = {'gold' : 0, 'silver' : 0, 'bronze' : 0, 'total' : 0 }
+
+            if position == first_place:
+                countries_dict[f'{country}']['gold'] += 1
+                countries_dict[f'{country}']['total'] += 1
+            
+            elif position == second_place:
+                countries_dict[f'{country}']['silver'] += 1
+                countries_dict[f'{country}']['total'] += 1
+            
+            elif position == third_place:
+                countries_dict[f'{country}']['bronze'] += 1
+                countries_dict[f'{country}']['total'] += 1
+
+    print(countries_dict)
+
+
+
     return winners
 
 
 
 # Tests
 count_medals([["USA", "CAN", "NOR"], ["NOR", "USA", "CAN"], ["USA", "NOR", "SWE"]])
-count_medals([["NOR","SWE","FIN"]])
-count_medals([["ITA", "CHN", "CHN"], ["JPN", "ITA", "JPN"]])
-count_medals([["USA","CAN","NOR"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["SWE","FIN","NOR"], ["CAN","USA","SWE"], ["FRA","GER","ITA"]])
-count_medals([["ESP","ITA","FRA"], ["ITA","ESP","GER"], ["NOR","SWE","FIN"], ["FIN","NOR","SWE"], ["USA","CAN","MEX"], ["CAN","USA","MEX"], ["JPN","KOR","CHN"], ["CHN","JPN","KOR"]])
-count_medals([["USA","CAN","GER"], ["NOR","SWE","FIN"], ["USA","NOR","SWE"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["USA","GER","CAN"], ["SWE","NOR","FIN"], ["CAN","USA","NOR"], ["FRA","GER","ITA"], ["JPN","CHN","KOR"], ["SWE","FIN","NOR"], ["GER","ITA","FRA"]])
+# count_medals([["NOR","SWE","FIN"]])
+# count_medals([["ITA", "CHN", "CHN"], ["JPN", "ITA", "JPN"]])
+# count_medals([["USA","CAN","NOR"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["SWE","FIN","NOR"], ["CAN","USA","SWE"], ["FRA","GER","ITA"]])
+# count_medals([["ESP","ITA","FRA"], ["ITA","ESP","GER"], ["NOR","SWE","FIN"], ["FIN","NOR","SWE"], ["USA","CAN","MEX"], ["CAN","USA","MEX"], ["JPN","KOR","CHN"], ["CHN","JPN","KOR"]])
+# count_medals([["USA","CAN","GER"], ["NOR","SWE","FIN"], ["USA","NOR","SWE"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["USA","GER","CAN"], ["SWE","NOR","FIN"], ["CAN","USA","NOR"], ["FRA","GER","ITA"], ["JPN","CHN","KOR"], ["SWE","FIN","NOR"], ["GER","ITA","FRA"]])
