@@ -94,7 +94,8 @@ def count_medals(winners):
                 countries_dict[f'{country}']['total'] += 1
 
     print(countries_dict)
-
+    sorted_countries_dict = dict(sorted(countries_dict.items(), key=lambda x: x[1]['gold'], reverse=True))
+    print(sorted_countries_dict)
 
 
     return winners
