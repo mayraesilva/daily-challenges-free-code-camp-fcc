@@ -94,8 +94,12 @@ def count_medals(winners):
                 countries_dict[f'{country}']['total'] += 1
 
     print(countries_dict)
+    # Now we sort the countries by the how many gold medal they received
     sorted_countries_dict = dict(sorted(countries_dict.items(), key=lambda x: x[1]['gold'], reverse=True))
     print(sorted_countries_dict)
+
+    # Cheking if there is a tie between 2 countries with same same amount of gold medals
+    
 
 
     return winners
