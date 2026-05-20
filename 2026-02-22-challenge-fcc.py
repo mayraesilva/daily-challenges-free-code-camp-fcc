@@ -99,17 +99,27 @@ def count_medals(winners):
     print(sorted_countries_dict)
 
     # Cheking if there is a tie between 2 countries with same same amount of gold medals
-    
+    for country in sorted_countries_dict.keys():
+        if sorted_countries_dict[country]['gold'] == sorted_countries_dict[country]['gold']:
+            print('There is a tie between 2 countries with same amount of gold medals')
+            sorted_countries_dict = dict(sorted(sorted_countries_dict.items(), key=lambda x: x[0]))
 
 
-    return winners
+    # Stringify the result
+    result = "Country,Gold,Silver,Bronze,Total\n"
+    for country in sorted_countries_dict.keys():
+        result += f"{country},{sorted_countries_dict[country]['gold']},{sorted_countries_dict[country]['silver']},{sorted_countries_dict[country]['bronze']},{sorted_countries_dict[country]['total']}\n"
+
+    print(result)
+    return result
+
 
 
 
 # Tests
 count_medals([["USA", "CAN", "NOR"], ["NOR", "USA", "CAN"], ["USA", "NOR", "SWE"]])
-# count_medals([["NOR","SWE","FIN"]])
-# count_medals([["ITA", "CHN", "CHN"], ["JPN", "ITA", "JPN"]])
-# count_medals([["USA","CAN","NOR"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["SWE","FIN","NOR"], ["CAN","USA","SWE"], ["FRA","GER","ITA"]])
-# count_medals([["ESP","ITA","FRA"], ["ITA","ESP","GER"], ["NOR","SWE","FIN"], ["FIN","NOR","SWE"], ["USA","CAN","MEX"], ["CAN","USA","MEX"], ["JPN","KOR","CHN"], ["CHN","JPN","KOR"]])
-# count_medals([["USA","CAN","GER"], ["NOR","SWE","FIN"], ["USA","NOR","SWE"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["USA","GER","CAN"], ["SWE","NOR","FIN"], ["CAN","USA","NOR"], ["FRA","GER","ITA"], ["JPN","CHN","KOR"], ["SWE","FIN","NOR"], ["GER","ITA","FRA"]])
+count_medals([["NOR","SWE","FIN"]])
+count_medals([["ITA", "CHN", "CHN"], ["JPN", "ITA", "JPN"]])
+count_medals([["USA","CAN","NOR"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["SWE","FIN","NOR"], ["CAN","USA","SWE"], ["FRA","GER","ITA"]])
+count_medals([["ESP","ITA","FRA"], ["ITA","ESP","GER"], ["NOR","SWE","FIN"], ["FIN","NOR","SWE"], ["USA","CAN","MEX"], ["CAN","USA","MEX"], ["JPN","KOR","CHN"], ["CHN","JPN","KOR"]])
+count_medals([["USA","CAN","GER"], ["NOR","SWE","FIN"], ["USA","NOR","SWE"], ["GER","FRA","ITA"], ["JPN","KOR","CHN"], ["USA","GER","CAN"], ["SWE","NOR","FIN"], ["CAN","USA","NOR"], ["FRA","GER","ITA"], ["JPN","CHN","KOR"], ["SWE","FIN","NOR"], ["GER","ITA","FRA"]])
