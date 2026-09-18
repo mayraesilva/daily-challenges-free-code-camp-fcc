@@ -37,8 +37,15 @@ def get_roommates(people):
     pair = []
 
     for person_dict in people:
+        while len (pair) < 2:
+            if len(pair) == 0:
+                pair.append(person_dict["name"])
+            elif len(pair) == 1 and person_dict["group"] == people[people.index({"name": pair[0], "group": person_dict["group"]})]["group"]:
+                pair.append(person_dict["name"])
+            else:
+                break
         
-        pass
+        
 
     return people
 
